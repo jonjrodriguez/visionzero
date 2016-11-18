@@ -10,7 +10,7 @@
 	* hdfs dfs -put data visionzero
 
 3. Extract, transform, and load the data
-	* Build jar files if necessary (look at etl directory for instructions)
+	* Build jar files - look at etl directory for instructions
 	* hadoop jar etl/tlc/TlcEtlDriver.jar vizionzero/data/tlc vizionzero/formatted/tlc
 
 4. Create Impala/Hive schema
