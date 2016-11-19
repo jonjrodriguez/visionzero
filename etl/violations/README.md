@@ -6,8 +6,8 @@ http://stackoverflow.com/questions/32986678/xlsx-with-multiple-sheets-as-input-t
 # Dependencies
 
 [Apache POI](https://poi.apache.org/)
+[Apache Ant](https://ant.apache.org/)
 
 # Build
 
-1. javac -classpath "`yarn classpath`:./poi/*:." *.java
-2. jar -cvfe ViolationsEtlDriver.jar ViolationsEtlDriver *.class
+1. ant
