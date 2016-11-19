@@ -69,7 +69,7 @@ def main():
 
     cleanfiles()
 
-    print "Renaming file"
+    print "Renaming files"
     for year in range(2012, 2017):
         for month in range(1, 13):
             renamefiles(year, month)
