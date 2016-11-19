@@ -5,7 +5,7 @@ import zipfile
 import requests
 
 COUNT = 0
-BASE_DIR = "data/collisions/"
+BASE_DIR = "data/original/collisions/"
 BASE_URL = "http://www.nyc.gov/html/nypd/downloads/zip/traffic_data/"
 
 def download(year, month):
@@ -47,7 +47,7 @@ def cleanfiles():
             count += 1
 
     # duplicate file in data source
-    os.remove("data/collisions/2012/09/bnacc.xlsx")
+    os.remove(BASE_DIR + "/2012/09/bnacc.xlsx")
     count += 1
 
     print "Deleted %d files" % count

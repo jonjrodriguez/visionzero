@@ -3,7 +3,7 @@ import sys
 import requests
 
 COUNT = 0
-BASE_DIR = "data/tlc/"
+BASE_DIR = "data/original/tlc/"
 BASE_URL = "https://s3.amazonaws.com/nyc-tlc/trip+data/"
 
 def download(color, year, month):

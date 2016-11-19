@@ -1,3 +1,7 @@
 .DS_Store
 *.class
 *.jar
+
+!etl/violations/poi/*.jar
+!etl/violations/poi/lib/*.jar
+!etl/violations/poi/ooxml-lib/*.jar

@@ -5,7 +5,7 @@ import zipfile
 import requests
 
 COUNT = 0
-BASE_DIR = "data/violations/"
+BASE_DIR = "data/original/violations/"
 BASE_URL = "http://www.nyc.gov/html/nypd/downloads/zip/traffic_data/"
 
 def download(year, month):
@@ -42,6 +42,10 @@ def cleanfiles():
         for filename in [x for x in filenames if re.match(pattern, x) or not x.endswith(".xlsx")]:
             os.remove(os.path.join(root, filename))
             count += 1
+
+    # Random file in data source
+    os.remove(BASE_DIR + "2014/06/Book1.xlsx")
+    count += 1
 
     print "Deleted %d files" % count
 
