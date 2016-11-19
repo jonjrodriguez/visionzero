@@ -9,5 +9,5 @@ http://stackoverflow.com/questions/32986678/xlsx-with-multiple-sheets-as-input-t
 
 # Build
 
-1. javac -classpath "\`yarn classpath\`:./poi/*:." *.java
+1. javac -classpath "`yarn classpath`:./poi/*:." *.java
 2. jar -cvfm ViolationsEtlDriver.jar manifest.mf *.class

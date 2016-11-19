@@ -11,8 +11,8 @@
 
 3. Extract, transform, and load the data
 	* Build jar files - look at etl directory for instructions
-	* hadoop jar etl/tlc/TlcEtlDriver.jar vizionzero/data/original/tlc vizionzero/data/formatted/tlc
-	* hadoop jar etl/violations/ViolationsEtlDriver.jar vizionzero/data/original/violations vizionzero/data/formatted/violations
+	* hadoop jar etl/tlc/TlcEtlDriver.jar visionzero/data/original/tlc visionzero/data/formatted/tlc
+	* hadoop jar etl/violations/ViolationsEtlDriver.jar visionzero/data/original/violations visionzero/data/formatted/violations
 
 4. Create Impala/Hive schema
 	* Update {base_path} in schema.q
