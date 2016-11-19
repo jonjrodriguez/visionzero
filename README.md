@@ -15,7 +15,8 @@
 	* hadoop jar etl/violations/ViolationsEtlDriver.jar visionzero/data/original/violations visionzero/data/formatted/violations
 
 4. Create Impala/Hive schema
-	* Update {base_path} in schema.q
+	* Update permissions: hdfs dfs -chmod -R 777 visionzero
+	* Update {base_path} in impala/schema.q
 	* Run either:
-		* Impala: impala-shell -f schema.q
+		* Impala: impala-shell -i compute-1-1 -f impala/schema.q
 		* Hive: beeline -u jdbc:hive2://babar.es.its.nyu.edu:10000/ -f schema.q

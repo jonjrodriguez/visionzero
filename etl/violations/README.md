@@ -10,4 +10,6 @@ http://stackoverflow.com/questions/32986678/xlsx-with-multiple-sheets-as-input-t
 
 # Build
 
-1. ant
+1. Update hadoop_home in build.xml
+	* Dumbo: /opt/cloudera/parcels/CDH-5.8.0-1.cdh5.8.0.p0.42/lib
+2. ant
