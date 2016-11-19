@@ -27,8 +27,9 @@ def download(year, month):
     print "Downloading and extracting %s" % filename
     COUNT += 1
 
+    unzip_dir = "%s/%04d/%02d" % (BASE_DIR, year, month)
     z_file = zipfile.ZipFile(StringIO.StringIO(response.content))
-    z_file.extractall("%s/%04d/%02d" % (BASE_DIR, year, month))
+    z_file.extractall(unzip_dir)
 
 def cleanfiles():
     print "Removing unneeded files"
@@ -49,6 +50,13 @@ def cleanfiles():
 
     print "Deleted %d files" % count
 
+def renamefiles(year, month):
+    unzip_dir = "%s/%04d/%02d" % (BASE_DIR, year, month)
+
+    if os.path.isdir(unzip_dir):
+        for filename in os.listdir(unzip_dir):
+            os.rename(os.path.join(unzip_dir, filename), os.path.join(unzip_dir, "%04d--%02d--%s" % (year, month, filename)))
+
 def main():
     if not os.path.exists(BASE_DIR):
         os.makedirs(BASE_DIR)
@@ -60,6 +68,11 @@ def main():
     print "Downloaded %d files" % COUNT
 
     cleanfiles()
+
+    print "Renaming file"
+    for year in range(2012, 2017):
+        for month in range(1, 13):
+            renamefiles(year, month)
 
 if __name__ == "__main__":
     main()

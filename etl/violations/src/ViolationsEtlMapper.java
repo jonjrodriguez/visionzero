@@ -15,15 +15,12 @@ public class ViolationsEtlMapper extends Mapper<LongWritable, Text, NullWritable
 
     @Override
     protected void setup(Context context) throws IOException, InterruptedException {
-        Path filePath = ((FileSplit) context.getInputSplit()).getPath();
+        String fileName = ((FileSplit) context.getInputSplit()).getPath().getName();
+        String[] parts = fileName.split("--");
 
-        int depth = filePath.depth();
-        String path = filePath.toString();
-        String[] parts = path.split(Path.SEPARATOR);
-
-        year = parts[depth - 2];
-        month = parts[depth - 1];
-        precinct = filePath.getName().replaceAll("\\D+", "");
+        year = parts[0];
+        month = parts[1];
+        precinct = parts[2].replaceAll("\\D+", "");
     }
 
     @Override

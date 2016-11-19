@@ -7,6 +7,6 @@ row format delimited fields terminated by ','
 location '{base_path}/visionzero/data/formatted/tlc';
 
 DROP TABLE IF EXISTS violations;
-create external table violations (precinct INT, month INT, year INT, violation STRING, amount INT)
+create external table violations (precinct INT, month INT, year INT, violation STRING, amount FLOAT)
 row format delimited fields terminated by ','
 location '{base_path}/visionzero/data/formatted/violations';
