@@ -17,4 +17,4 @@
 4. Create Hive schema
 	* Update permissions: hdfs dfs -chmod -R 777 visionzero
 	* Update {base_path} in hive/schema.q
-	* Hive: beeline -u jdbc:hive2://babar.es.its.nyu.edu:10000/ -f schema.q
+	* Hive: beeline -u jdbc:hive2://babar.es.its.nyu.edu:10000/ -f hive/schema.q
