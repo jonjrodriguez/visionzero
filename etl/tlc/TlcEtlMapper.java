@@ -37,54 +37,56 @@ public class TlcEtlMapper extends Mapper<LongWritable, Text, NullWritable, Text>
         String[] record = val.split(",");
 
         if (skipRecord(record)) {
-            _logger.info(val);
-        } else {
-            String formattedTime = "";
-            String formattedMph = "";
-
-            try {
-                Date pickup = _format.parse(record[1]);
-                Date dropoff = _format.parse(record[2]);
-
-                double distance = Double.parseDouble(record[distance_col]);
-                long seconds = (dropoff.getTime() - pickup.getTime()) / 1000;
-                double mph = distance / (seconds / 3600.0);
-
-                formattedTime = String.format("%.2f", seconds / 60.0);
-                formattedMph = String.format("%.2f", mph);
-            } catch (ParseException ignored) {}
-
-            // vendor_id, pickup, dropOff, trip_length, trip_distance, trip_mph, fare_amount
-            String results = record[0] + "," + record[1] + "," + record[2] + "," + formattedTime + "," +
-                    record[distance_col] + "," + formattedMph + "," + record[fare_col];
-
-            context.write(NullWritable.get(), new Text(results));
+            return;
         }
+
+        String formattedTime = "";
+        String formattedMph = "";
+        Double mph = 0.0;
+
+        try {
+            Date pickup = _format.parse(record[1]);
+            Date dropoff = _format.parse(record[2]);
+
+            Double distance = Double.parseDouble(record[distance_col]);
+            long seconds = (dropoff.getTime() - pickup.getTime()) / 1000;
+            mph = distance / (seconds / 3600.0);
+
+            formattedTime = String.format("%.2f", seconds / 60.0);
+            formattedMph = String.format("%.2f", mph);
+        } catch (ParseException ignored) {}
+
+        if (mph < 5.0 || mph > 80.0) {
+            return;
+        }
+
+        // vendor_id, pickup, dropOff, trip_length, trip_distance, trip_mph, fare_amount
+        String results = record[0] + "," + record[1] + "," + record[2] + "," + formattedTime + "," +
+                record[distance_col] + "," + formattedMph + "," + record[fare_col];
+
+        context.write(NullWritable.get(), new Text(results));
     }
 
     private boolean skipRecord(String[] record) {
         if (headerOrEmpty(record)) {
-            _logger.info("Skipped record: headerOrEmpty");
             return true;
         }
 
         if (!validPickup(record[1])) {
-            _logger.info("Skipped record: invalidPickup");
             return true;
         }
 
         if (!validDropOff(record[1], record[2])) {
-            _logger.info("Skipped record: invalidDropOff");
             return true;
         }
 
         if (!validDistance(record[distance_col])) {
-            _logger.info("Skipped record: invalidDistance");
+            // Only care about rides that 2 or more miles
             return true;
         }
 
-        if (!validFare(record[fare_col])) {
-            _logger.info("Skipped record: invalidFare");
+        if (!validFare(record[fare_col], record[distance_col])) {
+            // Only care about rides more than $5 and less than distance * $7
             return true;
         }
 
@@ -132,18 +134,20 @@ public class TlcEtlMapper extends Mapper<LongWritable, Text, NullWritable, Text>
             return false;
         }
 
-        return !dist.isNaN() && dist > 0;
+        return !dist.isNaN() && dist >= 2.0;
     }
 
-    private boolean validFare(String fare) {
+    private boolean validFare(String fare, String distance) {
         Double doubleFare;
+        Double dist;
 
         try {
             doubleFare = Double.parseDouble(fare);
+            dist = Double.parseDouble(distance);
         } catch (NumberFormatException e) {
             return false;
         }
 
-        return !doubleFare.isNaN() && doubleFare > 0.0;
+        return !doubleFare.isNaN() && doubleFare >= 5.0 && doubleFare < (dist * 7);
     }
 }
