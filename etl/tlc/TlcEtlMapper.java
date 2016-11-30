@@ -43,13 +43,14 @@ public class TlcEtlMapper extends Mapper<LongWritable, Text, NullWritable, Text>
         String formattedTime = "";
         String formattedMph = "";
         Double mph = 0.0;
+        long seconds = 0.0
 
         try {
             Date pickup = _format.parse(record[1]);
             Date dropoff = _format.parse(record[2]);
 
             Double distance = Double.parseDouble(record[distance_col]);
-            long seconds = (dropoff.getTime() - pickup.getTime()) / 1000;
+            seconds = (dropoff.getTime() - pickup.getTime()) / 1000;
             mph = distance / (seconds / 3600.0);
 
             formattedTime = String.format("%.2f", seconds / 60.0);
