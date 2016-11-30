@@ -110,7 +110,7 @@ public class TlcEtlMapper extends Mapper<LongWritable, Text, NullWritable, Text>
 
         try {
             date = _format.parse(pickup);
-            minDate = _format.parse("2012-12-31 12:00:00");
+            minDate = _format.parse("2012-10-31 23:59:59");
         } catch (ParseException e) {
             return false;
         }

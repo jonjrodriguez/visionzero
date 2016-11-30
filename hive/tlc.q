@@ -23,56 +23,58 @@ SELECT
 from tlc
 group by year(pickup), month(pickup);
 
--- 3 month running averages
-DROP TABLE IF EXISTS tlc_3mo_avg;
-CREATE TABLE tlc_3mo_avg
+-- TLC 3/6/12 month running averages
+DROP TABLE IF EXISTS tlc_running_avg;
+CREATE TABLE tlc_running_avg
     AS
 SELECT
     year,
 	month,
-    round(avg(avg_trip_minutes) over w, 2) as trip_minutes,
-    round(avg(avg_trip_miles) over w, 2) as trip_miles,
-    round(avg(avg_trip_mph) over w, 2) as trip_mph,
-    round(avg(avg_trip_fare) over w, 2) as trip_fare
+    round(avg(avg_trip_minutes) over w3, 2) as 3mo_trip_minutes,
+    round(avg(avg_trip_miles) over w3, 2) as 3mo_trip_miles,
+    round(avg(avg_trip_mph) over w3, 2) as 3mo_trip_mph,
+    round(avg(avg_trip_fare) over w3, 2) as 3mo_trip_fare,
+    round(avg(avg_trip_minutes) over w6, 2) as 6mo_trip_minutes,
+    round(avg(avg_trip_miles) over w6, 2) as 6mo_trip_miles,
+    round(avg(avg_trip_mph) over w6, 2) as 6mo_trip_mph,
+    round(avg(avg_trip_fare) over w6, 2) as 6mo_trip_fare,
+    round(avg(avg_trip_minutes) over w12, 2) as 12mo_trip_minutes,
+    round(avg(avg_trip_miles) over w12, 2) as 12mo_trip_miles,
+    round(avg(avg_trip_mph) over w12, 2) as 12mo_trip_mph,
+    round(avg(avg_trip_fare) over w12, 2) as 12mo_trip_fare
 from tlc_by_month
 order by year, month
-WINDOW w AS (
+WINDOW
+w3 AS (
     ORDER BY year, month
     ROWS BETWEEN 2 PRECEDING AND CURRENT ROW
-);
-
--- 6 month running averages
-DROP TABLE IF EXISTS tlc_6mo_avg;
-CREATE TABLE tlc_6mo_avg
-    AS
-SELECT
-    year,
-	month,
-    round(avg(avg_trip_minutes) over w, 2) as trip_minutes,
-    round(avg(avg_trip_miles) over w, 2) as trip_miles,
-    round(avg(avg_trip_mph) over w, 2) as trip_mph,
-    round(avg(avg_trip_fare) over w, 2) as trip_fare
-from tlc_by_month
-order by year, month
-WINDOW w AS (
+),
+w6 AS (
     ORDER BY year, month
     ROWS BETWEEN 5 PRECEDING AND CURRENT ROW
-);
-
--- 12 month running averages
-DROP TABLE IF EXISTS tlc_12mo_avg;
-CREATE TABLE tlc_12mo_avg
-    AS
-SELECT
-    year,
-	month,
-    round(avg(avg_trip_minutes) over w, 2) as trip_minutes,
-    round(avg(avg_trip_miles) over w, 2) as trip_miles,
-    round(avg(avg_trip_mph) over w, 2) as trip_mph,
-    round(avg(avg_trip_fare) over w, 2) as trip_fare
-from tlc_by_month
-order by year, month
-WINDOW w AS (
+),
+w12 AS (
     ORDER BY year, month
     ROWS BETWEEN 11 PRECEDING AND CURRENT ROW
+);
+
+-- Monthly percent change
+DROP TABLE IF EXISTS tlc_change_by_month;
+CREATE TABLE tlc_change_by_month
+    AS
+SELECT 
+    year,
+    month,
+    avg_trip_minutes,
+    round((1 - (avg_trip_minutes / lag(avg_trip_minutes) over w)) * -100, 2) as minutes_percent_change,
+    avg_trip_miles,
+    round((1 - (avg_trip_miles / lag(avg_trip_miles) over w)) * -100, 2) as miles_percent_change,
+    avg_trip_mph,
+    round((1 - (avg_trip_mph / lag(avg_trip_mph) over w)) * -100, 2) as mph_percent_change,
+    avg_trip_fare,
+    round((1 - (avg_trip_fare / lag(avg_trip_fare) over w)) * -100, 2) as fare_percent_change
+from tlc_by_month
+ORDER BY year, month
+WINDOW w as (
+    order by year, month
 );
