@@ -18,4 +18,5 @@ SELECT
     min(trip_fare) as min_trip_fare,
     max(trip_fare) as max_trip_fare
 from tlc
-group by month(pickup), year(pickup);
+group by month(pickup), year(pickup)
+order by year, month;

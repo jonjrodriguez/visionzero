@@ -56,7 +56,13 @@ public class TlcEtlMapper extends Mapper<LongWritable, Text, NullWritable, Text>
             formattedMph = String.format("%.2f", mph);
         } catch (ParseException ignored) {}
 
+        // Too slow or fast
         if (mph < 5.0 || mph > 80.0) {
+            return;
+        }
+
+        // Too long
+        if (seconds > 1.5 * 3600.0) {
             return;
         }
 
