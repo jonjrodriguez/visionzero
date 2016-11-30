@@ -48,10 +48,10 @@ CREATE TABLE tlc_6mo_avg
 SELECT
     year,
 	month,
-    round(avg(avg_trip_minutes), 2) over w as trip_minutes,
-    round(avg(avg_trip_miles), 2) over w as trip_miles,
-    round(avg(avg_trip_mph), 2) over w as trip_mph,
-    round(avg(avg_trip_fare), 2) over w as trip_fare
+    round(avg(avg_trip_minutes) over w, 2) as trip_minutes,
+    round(avg(avg_trip_miles) over w, 2) as trip_miles,
+    round(avg(avg_trip_mph) over w, 2) as trip_mph,
+    round(avg(avg_trip_fare) over w, 2) as trip_fare
 from tlc_by_month
 order by year, month
 WINDOW w AS (
@@ -66,10 +66,10 @@ CREATE TABLE tlc_12mo_avg
 SELECT
     year,
 	month,
-    round(avg(avg_trip_minutes), 2) over w as trip_minutes,
-    round(avg(avg_trip_miles), 2) over w as trip_miles,
-    round(avg(avg_trip_mph), 2) over w as trip_mph,
-    round(avg(avg_trip_fare), 2) over w as trip_fare
+    round(avg(avg_trip_minutes) over w, 2) as trip_minutes,
+    round(avg(avg_trip_miles) over w, 2) as trip_miles,
+    round(avg(avg_trip_mph) over w, 2) as trip_mph,
+    round(avg(avg_trip_fare) over w, 2) as trip_fare
 from tlc_by_month
 order by year, month
 WINDOW w AS (
