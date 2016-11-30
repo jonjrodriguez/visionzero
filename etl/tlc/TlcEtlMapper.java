@@ -43,7 +43,7 @@ public class TlcEtlMapper extends Mapper<LongWritable, Text, NullWritable, Text>
         String formattedTime = "";
         String formattedMph = "";
         Double mph = 0.0;
-        long seconds = 0.0
+        long seconds = 0;
 
         try {
             Date pickup = _format.parse(record[1]);
