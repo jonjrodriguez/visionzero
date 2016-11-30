@@ -1,8 +1,6 @@
-CREATE DATABASE IF NOT EXISTS vision_zero_fa16;
-USE vision_zero_fa16;
+USE vision_zero;
 
 DROP TABLE IF EXISTS tlc;
-
 create external table tlc (
     vendor_id STRING,
     pickup TIMESTAMP,

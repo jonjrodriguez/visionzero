@@ -14,7 +14,8 @@
 	* hadoop jar etl/tlc/TlcEtlDriver.jar visionzero/data/original/tlc visionzero/data/formatted/tlc
 	* hadoop jar etl/violations/ViolationsEtlDriver.jar visionzero/data/original/violations visionzero/data/formatted/violations
 
-4. Create Hive schema
-	* Update permissions: hdfs dfs -chmod -R 777 visionzero
+4. Create Hive schema (WIP)
 	* Update {base_path} in hive/schema.q
+	* Create database "vision_zero" in Hive
 	* Hive: beeline -u jdbc:hive2://babar.es.its.nyu.edu:10000/ -f hive/schema.q
+	* Hive: beeline -u jdbc:hive2://babar.es.its.nyu.edu:10000/ -f hive/tlc.q

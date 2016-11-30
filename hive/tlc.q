@@ -1,9 +1,12 @@
-USE vision_zero_fa16;
+USE vision_zero;
 
--- Totals by month
+-- Monthly averages and min/max
+DROP TABLE IF EXISTS tlc_by_month;
+CREATE TABLE tlc_by_month
+    AS
 SELECT
-	month(pickup) as month,
     year(pickup) as year,
+	month(pickup) as month,
     count(1) as trip_count,
     round(avg(trip_minutes), 2) as avg_trip_minutes,
     min(trip_minutes) as min_trip_minutes,
@@ -18,5 +21,58 @@ SELECT
     min(trip_fare) as min_trip_fare,
     max(trip_fare) as max_trip_fare
 from tlc
-group by month(pickup), year(pickup)
-order by year, month;
+group by year(pickup), month(pickup);
+
+-- 3 month running averages
+DROP TABLE IF EXISTS tlc_3mo_avg;
+CREATE TABLE tlc_3mo_avg
+    AS
+SELECT
+    year,
+	month,
+    round(avg(avg_trip_minutes) over w, 2) as trip_minutes,
+    round(avg(avg_trip_miles) over w, 2) as trip_miles,
+    round(avg(avg_trip_mph) over w, 2) as trip_mph,
+    round(avg(avg_trip_fare) over w, 2) as trip_fare
+from tlc_by_month
+order by year, month
+WINDOW w AS (
+    ORDER BY year, month
+    ROWS BETWEEN 2 PRECEDING AND CURRENT ROW
+);
+
+-- 6 month running averages
+DROP TABLE IF EXISTS tlc_6mo_avg;
+CREATE TABLE tlc_6mo_avg
+    AS
+SELECT
+    year,
+	month,
+    round(avg(avg_trip_minutes), 2) over w as trip_minutes,
+    round(avg(avg_trip_miles), 2) over w as trip_miles,
+    round(avg(avg_trip_mph), 2) over w as trip_mph,
+    round(avg(avg_trip_fare), 2) over w as trip_fare
+from tlc_by_month
+order by year, month
+WINDOW w AS (
+    ORDER BY year, month
+    ROWS BETWEEN 5 PRECEDING AND CURRENT ROW
+);
+
+-- 12 month running averages
+DROP TABLE IF EXISTS tlc_12mo_avg;
+CREATE TABLE tlc_12mo_avg
+    AS
+SELECT
+    year,
+	month,
+    round(avg(avg_trip_minutes), 2) over w as trip_minutes,
+    round(avg(avg_trip_miles), 2) over w as trip_miles,
+    round(avg(avg_trip_mph), 2) over w as trip_mph,
+    round(avg(avg_trip_fare), 2) over w as trip_fare
+from tlc_by_month
+order by year, month
+WINDOW w AS (
+    ORDER BY year, month
+    ROWS BETWEEN 11 PRECEDING AND CURRENT ROW
+);
