@@ -87,6 +87,24 @@ public class EtlMapper extends Mapper<LongWritable, Text, NullWritable, Text>
           }
 
     	    context.write(NullWritable.get(), new Text(sb.toString()));
+        	 if (!line.contains("Collision") && (columns.length == 23))  {
+		     String delim = ",";
+	             sb.append(borough).append(delim).append(month).append(delim).append(year);
+	             int[] ignoredColumns = {1, 2, 3, 7, 10};
+	             
+	             int i = 0;
+	             for (String col : columns) {
+	            	 if (ArrayUtils.contains(ignoredColumns, i)) {
+	            		 sb.append(delim).append(col);
+	             		 i++;
+	            	 }
+	             }
+             }
+             else {
+             	return;
+             }
+        	 
+        	 context.write(NullWritable.get(), new Text(sb.toString()));
         }
     }
 }
