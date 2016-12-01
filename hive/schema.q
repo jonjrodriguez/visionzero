@@ -23,3 +23,31 @@ create external table violations (
 )
 row format delimited fields terminated by ','
 location '{base_path}/visionzero/data/formatted/violations';
+
+DROP TABLE IF EXISTS collisions;
+CREATE EXTERNAL TABLE collisions (
+    Borough INT,
+    Month INT,
+    Year INT,
+    Precinct INT,
+    IntersectionAddress STRING,
+    IntersectingStreet STRING,
+    CrossStreet STRING,
+    CollisionInjuredCount INT,
+    CollisionKilledCount INT,
+    PersonsInjured INT,
+    PersonsKilled INT,
+    MotoristsInjured INT,
+    MotoristsKilled INT,
+    PassengersInjured INT,
+    PassengersKilled INT,
+    CyclistsInjured INT,
+    CyclistsKilled INT,
+    PedestriansInjured INT,
+    PedestriansKilled INT,
+    InjuryOrFatal INT,
+    Bicycle INT
+)
+
+row format delimited fields terminated by ','
+location '{base_path}/visionzero/data/formatted/collisions';

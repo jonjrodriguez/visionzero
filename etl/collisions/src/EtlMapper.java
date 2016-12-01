@@ -70,7 +70,7 @@ public class EtlMapper extends Mapper<LongWritable, Text, NullWritable, Text>
         }
         else {
         	 if (!line.contains("Collision") && (columns.length == 23))  {
-        		 String delim = ",";
+                 String delim = ",";
 	             sb.append(borough).append(delim).append(month).append(delim).append(year);
 	             int[] ignoredColumns = {1, 2, 3, 7, 10};
 	             
