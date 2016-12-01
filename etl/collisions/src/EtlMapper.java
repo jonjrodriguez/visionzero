@@ -34,7 +34,7 @@ public class EtlMapper extends Mapper<LongWritable, Text, NullWritable, Text>
         else if (fileName.contains("si")) {
         	borough = "Staten Island";
         }
-        
+
         year = parts[0];
         month = parts[1];
     }
@@ -45,13 +45,13 @@ public class EtlMapper extends Mapper<LongWritable, Text, NullWritable, Text>
         String line = value.toString();
         String[] columns = line.split(",");
         StringBuilder sb = new StringBuilder();
-        
+
         // The data is of a different format before March 2014
         Calendar newDataFormatDate = Calendar.getInstance();
         newDataFormatDate.set(2014, 02, 1);
         Calendar fileDate = Calendar.getInstance();
         fileDate.set(Integer.parseInt(year), Integer.parseInt(month), 1);
-        
+
         // If the file's date is before March 2014, data is using the old format
         // Else the data is using the new format
         if (fileDate.before(newDataFormatDate)) {
@@ -63,30 +63,30 @@ public class EtlMapper extends Mapper<LongWritable, Text, NullWritable, Text>
         	else {
         		return;
         	}
-        	
+
         	context.write(NullWritable.get(), new Text(sb.toString()));
         	*/
         	return;
         }
         else {
-        	 if (!line.contains("Collision") && (columns.length == 23))  {
-                 String delim = ",";
-	             sb.append(borough).append(delim).append(month).append(delim).append(year);
-	             int[] ignoredColumns = {1, 2, 3, 7, 10};
-	             
-	             int i = 0;
-	             for (String col : columns) {
-	            	 if (ArrayUtils.contains(ignoredColumns, i)) {
-	            		 sb.append(delim).append(col);
-	             		 i++;
-	            	 }
-	             }
-             }
-             else {
-             	return;
-             }
-        	 
-        	 context.write(NullWritable.get(), new Text(sb.toString()));
+          if (!line.contains("Collision") && (columns.length == 23))  {
+            String delim = ",";
+            sb.append(borough).append(delim).append(month).append(delim).append(year);
+            int[] ignoredColumns = {1, 2, 3, 7, 10};
+
+            int i = 0;
+	          for (String col : columns) {
+              if (ArrayUtils.contains(ignoredColumns, i)) {
+                sb.append(delim).append(col);
+             		i++;
+            	}
+            }
+          }
+          else {
+            return;
+          }
+
+    	    context.write(NullWritable.get(), new Text(sb.toString()));
         }
     }
 }
