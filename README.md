@@ -13,6 +13,7 @@
 	* Build jar files - look at etl directory for instructions
 	* hadoop jar etl/tlc/TlcEtlDriver.jar visionzero/data/original/tlc visionzero/data/formatted/tlc
 	* hadoop jar etl/violations/ViolationsEtlDriver.jar visionzero/data/original/violations visionzero/data/formatted/violations
+	* hadoop jar etl/collisions/EtlData.jar visionzero/data/original/collisions visionzero/data/formatted/collisions
 
 4. Create Hive schema (WIP)
 	* Update {base_path} in hive/schema.q

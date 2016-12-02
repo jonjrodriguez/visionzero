@@ -16,6 +16,7 @@ public class ExcelRecordReader extends RecordReader<LongWritable, Text>
     private String sheet;
     private LongWritable key;
     private Text value;
+    private String[] lines;
 
     @Override
     public void initialize(InputSplit genericSplit, TaskAttemptContext context)
@@ -29,6 +30,7 @@ public class ExcelRecordReader extends RecordReader<LongWritable, Text>
         fileIn = fs.open(split.getPath());
 
         sheet = new ExcelParser().parseExcelData(fileIn);
+        lines = sheet.split("\n");
     }
 
     @Override
@@ -36,9 +38,18 @@ public class ExcelRecordReader extends RecordReader<LongWritable, Text>
     {
         if (key == null) {
             key = new LongWritable(0);
-            value = new Text(sheet);
+            value = new Text(lines[0]);
         } else {
-            return false;
+            if (key.get() < (lines.length - 1)) {
+                long pos = (int) key.get();
+
+                key.set(pos + 1);
+                value.set(lines[(int) (pos + 1)]);
+
+                pos++;
+            } else {
+                return false;
+            }
         }
 
         if (key == null || value == null) {
