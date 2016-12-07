@@ -19,7 +19,7 @@ public class EtlMapper extends Mapper<LongWritable, Text, NullWritable, Text>
         String fileName = ((FileSplit) context.getInputSplit()).getPath().getName();
         String[] parts = fileName.split("--");
 
-        if (fileName.contains("bk")) {
+        if ((fileName.contains("bk")) || (fileName.contains("bn"))) {
             borough = "Brooklyn";
         }
         else if (fileName.contains("bx")) {
@@ -64,11 +64,23 @@ public class EtlMapper extends Mapper<LongWritable, Text, NullWritable, Text>
             	String[] killedColumns = columns[7].split(";");
         		
             	// Precinct
-            	columns[0] = columns[0].replaceAll("[^0-9?!\\.]","");
-            	columns[0] = String.format("%03d", Integer.parseInt(columns[0]));
-            	sb.append(delim).append(columns[0]);
+            	if (columns[0].matches(".*[0-9].*")) {
+            		columns[0] = columns[0].replaceAll("[^0-9?!\\.]","");
+                	columns[0] = String.format("%03d", Integer.parseInt(columns[0]));
+            	}
+            	if (columns[0].toLowerCase().contains("south")) {
+            		sb.append(delim).append("014");
+            	}
+            	else if (columns[0].toLowerCase().contains("north")) {
+            		sb.append(delim).append("018");
+            	}
+            	else {
+            		sb.append(delim).append(columns[0]);
+            	}
+            	
             	// CollisionCount
             	sb.append(delim).append(columns[2]);
+            	
             	// CollisionInjuredCount
             	if (injuredColumns.length == 5) {
             		sb.append(delim).append(injuredColumns[4]);
@@ -76,6 +88,7 @@ public class EtlMapper extends Mapper<LongWritable, Text, NullWritable, Text>
             	else {
             		sb.append(delim).append("0");
             	}
+            	
             	// CollisionKilledCount
             	if (killedColumns.length == 5) {
             		sb.append(delim).append(killedColumns[4]);
@@ -115,7 +128,7 @@ public class EtlMapper extends Mapper<LongWritable, Text, NullWritable, Text>
         	  }
           }
           else {
-              return;
+            return;
           }
         }
 
