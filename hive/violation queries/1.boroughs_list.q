@@ -7,5 +7,5 @@ borough string,
 precinct int
 ) 
 row format delimited fields terminated by ',' 
-location '/user/ss9711/hiveInput/' 
+location '{base_path}/hiveInput/' 
 tblproperties ("skip.header.line.count"="1");
