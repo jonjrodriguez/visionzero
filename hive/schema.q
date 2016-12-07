@@ -41,7 +41,6 @@ CREATE EXTERNAL TABLE collisions (
     CyclistsKilled INT,
     PedestriansInjured INT,
     PedestriansKilled INT,
-    Bicycle INT
 )
 row format delimited fields terminated by ','
 location '{base_path}/visionzero/data/formatted/collisions';
