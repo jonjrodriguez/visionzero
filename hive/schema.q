@@ -33,8 +33,6 @@ CREATE EXTERNAL TABLE collisions (
     CollisionCount INT,
     CollisionInjuredCount INT,
     CollisionKilledCount INT,
-    PersonsInjured INT,
-    PersonsKilled INT,
     MotoristsInjured INT,
     MotoristsKilled INT,
     PassengersInjured INT,
@@ -43,7 +41,6 @@ CREATE EXTERNAL TABLE collisions (
     CyclistsKilled INT,
     PedestriansInjured INT,
     PedestriansKilled INT,
-    InjuryOrFatal INT,
     Bicycle INT
 )
 row format delimited fields terminated by ','
