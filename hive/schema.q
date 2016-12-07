@@ -26,7 +26,7 @@ location '{base_path}/visionzero/data/formatted/violations';
 
 DROP TABLE IF EXISTS collisions;
 CREATE EXTERNAL TABLE collisions (
-    Borough INT,
+    Borough STRING,
     Month INT,
     Year INT,
     Precinct INT,
