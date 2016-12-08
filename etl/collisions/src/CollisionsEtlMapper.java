@@ -20,7 +20,7 @@ public class CollisionsEtlMapper extends Mapper<LongWritable, Text, NullWritable
         String[] parts = fileName.split("--");
 
         if ((fileName.contains("bk")) || (fileName.contains("bn"))) {
-            borough = "Brooklyn";
+          borough = "Brooklyn";
         }
         else if (fileName.contains("bx")) {
         	borough = "Bronx";
@@ -55,18 +55,18 @@ public class CollisionsEtlMapper extends Mapper<LongWritable, Text, NullWritable
         String delim = ",";
         // Borough, Month and Year
   	  	sb.append(borough).append(delim).append(month).append(delim).append(year);
-  	  	
+
         // If the file's date is before March 2014, data is using the old format
         // Else the data is using the new format
         if (fileDate.before(newDataFormatDate)) {
-        	if (!line.contains("Address") && ((columns.length == 10) || (columns.length == 9))) {
+        	if (!line.contains("Address") && ((columns.length == 10) || (columns.length == 9) || (columns.length == 8))) {
             	String[] injuredColumns = columns[6].split(";");
             	String[] killedColumns = columns[7].split(";");
-        		
+
             	// Precinct
             	if (columns[0].matches(".*[0-9].*")) {
             		columns[0] = columns[0].replaceAll("[^0-9?!\\.]","");
-                	columns[0] = String.format("%03d", Integer.parseInt(columns[0]));
+              	columns[0] = String.format("%03d", Integer.parseInt(columns[0]));
             	}
             	if (columns[0].toLowerCase().contains("south")) {
             		sb.append(delim).append("014");
@@ -77,10 +77,10 @@ public class CollisionsEtlMapper extends Mapper<LongWritable, Text, NullWritable
             	else {
             		sb.append(delim).append(columns[0]);
             	}
-            	
+
             	// CollisionCount
             	sb.append(delim).append(columns[2]);
-            	
+
             	// CollisionInjuredCount
             	if (injuredColumns.length == 5) {
             		sb.append(delim).append(injuredColumns[4]);
@@ -88,7 +88,7 @@ public class CollisionsEtlMapper extends Mapper<LongWritable, Text, NullWritable
             	else {
             		sb.append(delim).append("0");
             	}
-            	
+
             	// CollisionKilledCount
             	if (killedColumns.length == 5) {
             		sb.append(delim).append(killedColumns[4]);
@@ -96,17 +96,17 @@ public class CollisionsEtlMapper extends Mapper<LongWritable, Text, NullWritable
             	else {
             		sb.append(delim).append("0");
             	}
-            	
+
             	// Motorists, Passengers, Cyclists, Pedestrians injured and killed
             	for (int i = 0; i < 4; i++) {
             		if ((injuredColumns.length == 5) && (killedColumns.length == 5)) {
             			sb.append(delim).append(injuredColumns[i]);
+            			sb.append(delim).append(killedColumns[i]);
             		}
             		else {
-            			sb.append(delim).append("0");
+            			sb.append(delim).append("0").append(delim).append("0");
             		}
             	}
-            	
         	}
         	else {
         		return;
@@ -120,7 +120,7 @@ public class CollisionsEtlMapper extends Mapper<LongWritable, Text, NullWritable
         	  for (String col : columns) {
         		  if (!Arrays.asList(ignoredColumns).contains(i)) {
         			  if (i == 8) {
-        				  sb.append(delim).append("1"); 
+        				  sb.append(delim).append("1");
         			  }
         			  sb.append(delim).append(col);
         		  }
