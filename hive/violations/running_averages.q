@@ -1,21 +1,16 @@
--- Running averager for each boroughs
+USE vision_zero;
 
-use vision_zero;
-DROP TABLE IF EXISTS violations_running_average;
-
-create table violations_running_average AS
- 
+-- Violation 3/6/12 month running averages for borough/NYC
 SELECT
     year,
-    borough,
 	month,
+    borough,
 	number_of_violations,
     round(avg(number_of_violations) over w3, 2) as 3mo_violations,
     round(avg(number_of_violations) over w6, 2) as 6mo_violations,
     round(avg(number_of_violations) over w12, 2) as 12mo_violations
-from 
-violations_per_borough_by_month 
-order by borough,year, month
+from violations_per_borough_by_month 
+order by borough, year, month
 WINDOW
 w3 AS (
     PARTITION BY borough

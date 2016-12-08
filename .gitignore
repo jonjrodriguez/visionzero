@@ -1,6 +1,9 @@
 .DS_Store
 *.class
 *.jar
+data/*
+
+!data/precincts
 
 !etl/violations/lib/poi/*.jar
 !etl/violations/lib/poi/lib/*.jar
