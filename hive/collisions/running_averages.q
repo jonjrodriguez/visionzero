@@ -12,7 +12,7 @@ SELECT
   injured_count,
   ROUND(AVG(injured_count) OVER W3, 2) AS 3mo_injured_count,
   ROUND(AVG(injured_count) OVER W6, 2) AS 6mo_injured_count,
-  ROUND(AVG(injured_count) OVER W12, 2) AS 12mo_injured_count
+  ROUND(AVG(injured_count) OVER W12, 2) AS 12mo_injured_count,
   killed_count,
   ROUND(AVG(killed_count) OVER W3, 2) AS 3mo_killed_count,
   ROUND(AVG(killed_count) OVER W6, 2) AS 6mo_killed_count,
