@@ -9,7 +9,7 @@ SELECT
     round(avg(number_of_violations) over w3, 2) as 3mo_violations,
     round(avg(number_of_violations) over w6, 2) as 6mo_violations,
     round(avg(number_of_violations) over w12, 2) as 12mo_violations
-from violations_per_borough_by_month 
+from violations_by_month 
 order by borough, year, month
 WINDOW
 w3 AS (
