@@ -1,0 +1,2764 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 10100.16.1103.2343                               -->
+<workbook source-build='10.1.1 (10100.16.1103.2343)' source-platform='mac' version='10.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='collisions_by_month.csv+ (Multiple Connections)' inline='true' name='federated.15chgyi081ltxw1d8i8pw0he9nmh' version='10.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='collisions_by_month' name='textscan.1ykk4my0mfvy2k1blvsfc062xihw'>
+            <connection class='textscan' directory='/Users/JRod/Sites/visionzero/results/collisions' filename='collisions_by_month.csv' password='' server='' />
+          </named-connection>
+          <named-connection caption='violations_by_month' name='textscan.0v020k00l4k2ur12k1tn01hyod03'>
+            <connection class='textscan' directory='/Users/JRod/Sites/visionzero/results/violations' filename='violations_by_month.csv' password='' server='' />
+          </named-connection>
+          <named-connection caption='tlc_by_month' name='textscan.1iggtyn11ou50p10qtc4g023wmma'>
+            <connection class='textscan' directory='/Users/JRod/Sites/visionzero/results/tlc' filename='tlc_by_month.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation join='full' type='join'>
+          <clause type='join'>
+            <expression op='AND'>
+              <expression op='='>
+                <expression op='[collisions_by_month.csv].[month]' />
+                <expression op='[tlc_running_avg.csv].[month]' />
+              </expression>
+              <expression op='='>
+                <expression op='[collisions_by_month.csv].[year]' />
+                <expression op='[tlc_running_avg.csv].[year]' />
+              </expression>
+            </expression>
+          </clause>
+          <relation join='full' type='join'>
+            <clause type='join'>
+              <expression op='AND'>
+                <expression op='='>
+                  <expression op='[collisions_by_month.csv].[month]' />
+                  <expression op='[tlc_percent_change.csv].[month]' />
+                </expression>
+                <expression op='='>
+                  <expression op='[collisions_by_month.csv].[year]' />
+                  <expression op='[tlc_percent_change.csv].[year]' />
+                </expression>
+              </expression>
+            </clause>
+            <relation join='full' type='join'>
+              <clause type='join'>
+                <expression op='AND'>
+                  <expression op='='>
+                    <expression op='[collisions_by_month.csv].[month]' />
+                    <expression op='[tlc_by_month.csv].[month]' />
+                  </expression>
+                  <expression op='='>
+                    <expression op='[collisions_by_month.csv].[year]' />
+                    <expression op='[tlc_by_month.csv].[year]' />
+                  </expression>
+                </expression>
+              </clause>
+              <relation join='full' type='join'>
+                <clause type='join'>
+                  <expression op='AND'>
+                    <expression op='='>
+                      <expression op='[collisions_by_month.csv].[month]' />
+                      <expression op='[violations_running_avg.csv].[month]' />
+                    </expression>
+                    <expression op='='>
+                      <expression op='[collisions_by_month.csv].[year]' />
+                      <expression op='[violations_running_avg.csv].[year]' />
+                    </expression>
+                    <expression op='='>
+                      <expression op='[collisions_by_month.csv].[borough]' />
+                      <expression op='[violations_running_avg.csv].[borough]' />
+                    </expression>
+                  </expression>
+                </clause>
+                <relation join='full' type='join'>
+                  <clause type='join'>
+                    <expression op='AND'>
+                      <expression op='='>
+                        <expression op='[collisions_by_month.csv].[month]' />
+                        <expression op='[violations_percent_change.csv].[month]' />
+                      </expression>
+                      <expression op='='>
+                        <expression op='[collisions_by_month.csv].[year]' />
+                        <expression op='[violations_percent_change.csv].[year]' />
+                      </expression>
+                      <expression op='='>
+                        <expression op='[collisions_by_month.csv].[borough]' />
+                        <expression op='[violations_percent_change.csv].[borough]' />
+                      </expression>
+                    </expression>
+                  </clause>
+                  <relation join='full' type='join'>
+                    <clause type='join'>
+                      <expression op='AND'>
+                        <expression op='='>
+                          <expression op='[collisions_by_month.csv].[month]' />
+                          <expression op='[violations_by_month.csv].[month]' />
+                        </expression>
+                        <expression op='='>
+                          <expression op='[collisions_by_month.csv].[year]' />
+                          <expression op='[violations_by_month.csv].[year]' />
+                        </expression>
+                        <expression op='='>
+                          <expression op='[collisions_by_month.csv].[borough]' />
+                          <expression op='[violations_by_month.csv].[borough]' />
+                        </expression>
+                      </expression>
+                    </clause>
+                    <relation join='full' type='join'>
+                      <clause type='join'>
+                        <expression op='AND'>
+                          <expression op='='>
+                            <expression op='[collisions_by_month.csv].[month]' />
+                            <expression op='[collisions_running_avg.csv].[month]' />
+                          </expression>
+                          <expression op='='>
+                            <expression op='[collisions_by_month.csv].[year]' />
+                            <expression op='[collisions_running_avg.csv].[year]' />
+                          </expression>
+                          <expression op='='>
+                            <expression op='[collisions_by_month.csv].[borough]' />
+                            <expression op='[collisions_running_avg.csv].[borough]' />
+                          </expression>
+                        </expression>
+                      </clause>
+                      <relation join='full' type='join'>
+                        <clause type='join'>
+                          <expression op='AND'>
+                            <expression op='='>
+                              <expression op='[collisions_by_month.csv].[month]' />
+                              <expression op='[collisions_percent_change.csv].[month]' />
+                            </expression>
+                            <expression op='='>
+                              <expression op='[collisions_by_month.csv].[year]' />
+                              <expression op='[collisions_percent_change.csv].[year]' />
+                            </expression>
+                            <expression op='='>
+                              <expression op='[collisions_by_month.csv].[borough]' />
+                              <expression op='[collisions_percent_change.csv].[borough]' />
+                            </expression>
+                          </expression>
+                        </clause>
+                        <relation connection='textscan.1ykk4my0mfvy2k1blvsfc062xihw' name='collisions_by_month.csv' table='[collisions_by_month#csv]' type='table'>
+                          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                            <column datatype='integer' name='year' ordinal='0' />
+                            <column datatype='integer' name='month' ordinal='1' />
+                            <column datatype='string' name='borough' ordinal='2' />
+                            <column datatype='real' name='collision_count' ordinal='3' />
+                            <column datatype='integer' name='min_collision_count' ordinal='4' />
+                            <column datatype='integer' name='max_collision_count' ordinal='5' />
+                            <column datatype='real' name='injured_count' ordinal='6' />
+                            <column datatype='integer' name='min_injured_count' ordinal='7' />
+                            <column datatype='integer' name='max_injured_count' ordinal='8' />
+                            <column datatype='real' name='killed_count' ordinal='9' />
+                            <column datatype='integer' name='min_killed_count' ordinal='10' />
+                            <column datatype='integer' name='max_killed_count' ordinal='11' />
+                          </columns>
+                        </relation>
+                        <relation connection='textscan.1ykk4my0mfvy2k1blvsfc062xihw' name='collisions_percent_change.csv' table='[collisions_percent_change#csv]' type='table'>
+                          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                            <column datatype='integer' name='year' ordinal='0' />
+                            <column datatype='integer' name='month' ordinal='1' />
+                            <column datatype='string' name='borough' ordinal='2' />
+                            <column datatype='integer' name='collision_count' ordinal='3' />
+                            <column datatype='real' name='collision_percent_change' ordinal='4' />
+                            <column datatype='integer' name='killed_count' ordinal='5' />
+                            <column datatype='string' name='killed_percent_change' ordinal='6' />
+                            <column datatype='integer' name='injured_count' ordinal='7' />
+                            <column datatype='real' name='injured_percent_change' ordinal='8' />
+                          </columns>
+                        </relation>
+                      </relation>
+                      <relation connection='textscan.1ykk4my0mfvy2k1blvsfc062xihw' name='collisions_running_avg.csv' table='[collisions_running_avg#csv]' type='table'>
+                        <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                          <column datatype='integer' name='year' ordinal='0' />
+                          <column datatype='integer' name='month' ordinal='1' />
+                          <column datatype='string' name='borough' ordinal='2' />
+                          <column datatype='integer' name='collision_count' ordinal='3' />
+                          <column datatype='real' name='3mo_collision_count' ordinal='4' />
+                          <column datatype='real' name='6mo_collision_count' ordinal='5' />
+                          <column datatype='real' name='12mo_collision_count' ordinal='6' />
+                          <column datatype='integer' name='injured_count' ordinal='7' />
+                          <column datatype='real' name='3mo_injured_count' ordinal='8' />
+                          <column datatype='real' name='6mo_injured_count' ordinal='9' />
+                          <column datatype='real' name='12mo_injured_count' ordinal='10' />
+                          <column datatype='integer' name='killed_count' ordinal='11' />
+                          <column datatype='real' name='3mo_killed_count' ordinal='12' />
+                          <column datatype='real' name='6mo_killed_count' ordinal='13' />
+                          <column datatype='real' name='12mo_killed_count' ordinal='14' />
+                        </columns>
+                      </relation>
+                    </relation>
+                    <relation connection='textscan.0v020k00l4k2ur12k1tn01hyod03' name='violations_by_month.csv' table='[violations_by_month#csv]' type='table'>
+                      <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                        <column datatype='integer' name='year' ordinal='0' />
+                        <column datatype='integer' name='month' ordinal='1' />
+                        <column datatype='string' name='borough' ordinal='2' />
+                        <column datatype='real' name='number_of_violations' ordinal='3' />
+                        <column datatype='real' name='min_violations' ordinal='4' />
+                        <column datatype='real' name='max_violations' ordinal='5' />
+                      </columns>
+                    </relation>
+                  </relation>
+                  <relation connection='textscan.0v020k00l4k2ur12k1tn01hyod03' name='violations_percent_change.csv' table='[violations_percent_change#csv]' type='table'>
+                    <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                      <column datatype='integer' name='year' ordinal='0' />
+                      <column datatype='integer' name='month' ordinal='1' />
+                      <column datatype='string' name='borough' ordinal='2' />
+                      <column datatype='real' name='number_of_violations' ordinal='3' />
+                      <column datatype='real' name='violations_percent_change' ordinal='4' />
+                    </columns>
+                  </relation>
+                </relation>
+                <relation connection='textscan.0v020k00l4k2ur12k1tn01hyod03' name='violations_running_avg.csv' table='[violations_running_avg#csv]' type='table'>
+                  <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                    <column datatype='integer' name='year' ordinal='0' />
+                    <column datatype='integer' name='month' ordinal='1' />
+                    <column datatype='string' name='borough' ordinal='2' />
+                    <column datatype='real' name='number_of_violations' ordinal='3' />
+                    <column datatype='real' name='3mo_violations' ordinal='4' />
+                    <column datatype='real' name='6mo_violations' ordinal='5' />
+                    <column datatype='real' name='12mo_violations' ordinal='6' />
+                  </columns>
+                </relation>
+              </relation>
+              <relation connection='textscan.1iggtyn11ou50p10qtc4g023wmma' name='tlc_by_month.csv' table='[tlc_by_month#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='integer' name='year' ordinal='0' />
+                  <column datatype='integer' name='month' ordinal='1' />
+                  <column datatype='integer' name='trip_count' ordinal='2' />
+                  <column datatype='real' name='avg_trip_minutes' ordinal='3' />
+                  <column datatype='real' name='min_trip_minutes' ordinal='4' />
+                  <column datatype='real' name='max_trip_minutes' ordinal='5' />
+                  <column datatype='real' name='avg_trip_miles' ordinal='6' />
+                  <column datatype='real' name='min_trip_miles' ordinal='7' />
+                  <column datatype='real' name='max_trip_miles' ordinal='8' />
+                  <column datatype='real' name='avg_trip_mph' ordinal='9' />
+                  <column datatype='real' name='min_trip_mph' ordinal='10' />
+                  <column datatype='real' name='max_trip_mph' ordinal='11' />
+                  <column datatype='real' name='avg_trip_fare' ordinal='12' />
+                  <column datatype='real' name='min_trip_fare' ordinal='13' />
+                  <column datatype='real' name='max_trip_fare' ordinal='14' />
+                </columns>
+              </relation>
+            </relation>
+            <relation connection='textscan.1iggtyn11ou50p10qtc4g023wmma' name='tlc_percent_change.csv' table='[tlc_percent_change#csv]' type='table'>
+              <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                <column datatype='integer' name='year' ordinal='0' />
+                <column datatype='integer' name='month' ordinal='1' />
+                <column datatype='real' name='avg_trip_minutes' ordinal='2' />
+                <column datatype='real' name='minutes_percent_change' ordinal='3' />
+                <column datatype='real' name='avg_trip_miles' ordinal='4' />
+                <column datatype='real' name='miles_percent_change' ordinal='5' />
+                <column datatype='real' name='avg_trip_mph' ordinal='6' />
+                <column datatype='real' name='mph_percent_change' ordinal='7' />
+                <column datatype='real' name='avg_trip_fare' ordinal='8' />
+                <column datatype='real' name='fare_percent_change' ordinal='9' />
+              </columns>
+            </relation>
+          </relation>
+          <relation connection='textscan.1iggtyn11ou50p10qtc4g023wmma' name='tlc_running_avg.csv' table='[tlc_running_avg#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='integer' name='year' ordinal='0' />
+              <column datatype='integer' name='month' ordinal='1' />
+              <column datatype='real' name='3mo_trip_minutes' ordinal='2' />
+              <column datatype='real' name='3mo_trip_miles' ordinal='3' />
+              <column datatype='real' name='3mo_trip_mph' ordinal='4' />
+              <column datatype='real' name='3mo_trip_fare' ordinal='5' />
+              <column datatype='real' name='6mo_trip_minutes' ordinal='6' />
+              <column datatype='real' name='6mo_trip_miles' ordinal='7' />
+              <column datatype='real' name='6mo_trip_mph' ordinal='8' />
+              <column datatype='real' name='6mo_trip_fare' ordinal='9' />
+              <column datatype='real' name='12mo_trip_minutes' ordinal='10' />
+              <column datatype='real' name='12mo_trip_miles' ordinal='11' />
+              <column datatype='real' name='12mo_trip_mph' ordinal='12' />
+              <column datatype='real' name='12mo_trip_fare' ordinal='13' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[12mo_collision_count]' value='[collisions_running_avg.csv].[12mo_collision_count]' />
+          <map key='[12mo_injured_count]' value='[collisions_running_avg.csv].[12mo_injured_count]' />
+          <map key='[12mo_killed_count]' value='[collisions_running_avg.csv].[12mo_killed_count]' />
+          <map key='[12mo_trip_fare]' value='[tlc_running_avg.csv].[12mo_trip_fare]' />
+          <map key='[12mo_trip_miles]' value='[tlc_running_avg.csv].[12mo_trip_miles]' />
+          <map key='[12mo_trip_minutes]' value='[tlc_running_avg.csv].[12mo_trip_minutes]' />
+          <map key='[12mo_trip_mph]' value='[tlc_running_avg.csv].[12mo_trip_mph]' />
+          <map key='[12mo_violations]' value='[violations_running_avg.csv].[12mo_violations]' />
+          <map key='[3mo_collision_count]' value='[collisions_running_avg.csv].[3mo_collision_count]' />
+          <map key='[3mo_injured_count]' value='[collisions_running_avg.csv].[3mo_injured_count]' />
+          <map key='[3mo_killed_count]' value='[collisions_running_avg.csv].[3mo_killed_count]' />
+          <map key='[3mo_trip_fare]' value='[tlc_running_avg.csv].[3mo_trip_fare]' />
+          <map key='[3mo_trip_miles]' value='[tlc_running_avg.csv].[3mo_trip_miles]' />
+          <map key='[3mo_trip_minutes]' value='[tlc_running_avg.csv].[3mo_trip_minutes]' />
+          <map key='[3mo_trip_mph]' value='[tlc_running_avg.csv].[3mo_trip_mph]' />
+          <map key='[3mo_violations]' value='[violations_running_avg.csv].[3mo_violations]' />
+          <map key='[6mo_collision_count]' value='[collisions_running_avg.csv].[6mo_collision_count]' />
+          <map key='[6mo_injured_count]' value='[collisions_running_avg.csv].[6mo_injured_count]' />
+          <map key='[6mo_killed_count]' value='[collisions_running_avg.csv].[6mo_killed_count]' />
+          <map key='[6mo_trip_fare]' value='[tlc_running_avg.csv].[6mo_trip_fare]' />
+          <map key='[6mo_trip_miles]' value='[tlc_running_avg.csv].[6mo_trip_miles]' />
+          <map key='[6mo_trip_minutes]' value='[tlc_running_avg.csv].[6mo_trip_minutes]' />
+          <map key='[6mo_trip_mph]' value='[tlc_running_avg.csv].[6mo_trip_mph]' />
+          <map key='[6mo_violations]' value='[violations_running_avg.csv].[6mo_violations]' />
+          <map key='[avg_trip_fare (tlc_percent_change.csv)]' value='[tlc_percent_change.csv].[avg_trip_fare]' />
+          <map key='[avg_trip_fare]' value='[tlc_by_month.csv].[avg_trip_fare]' />
+          <map key='[avg_trip_miles (tlc_percent_change.csv)]' value='[tlc_percent_change.csv].[avg_trip_miles]' />
+          <map key='[avg_trip_miles]' value='[tlc_by_month.csv].[avg_trip_miles]' />
+          <map key='[avg_trip_minutes (tlc_percent_change.csv)]' value='[tlc_percent_change.csv].[avg_trip_minutes]' />
+          <map key='[avg_trip_minutes]' value='[tlc_by_month.csv].[avg_trip_minutes]' />
+          <map key='[avg_trip_mph (tlc_percent_change.csv)]' value='[tlc_percent_change.csv].[avg_trip_mph]' />
+          <map key='[avg_trip_mph]' value='[tlc_by_month.csv].[avg_trip_mph]' />
+          <map key='[borough (collisions_percent_change.csv)]' value='[collisions_percent_change.csv].[borough]' />
+          <map key='[borough (collisions_running_avg.csv)]' value='[collisions_running_avg.csv].[borough]' />
+          <map key='[borough (violations_by_month.csv)]' value='[violations_by_month.csv].[borough]' />
+          <map key='[borough (violations_percent_change.csv)]' value='[violations_percent_change.csv].[borough]' />
+          <map key='[borough (violations_running_avg.csv)]' value='[violations_running_avg.csv].[borough]' />
+          <map key='[borough]' value='[collisions_by_month.csv].[borough]' />
+          <map key='[collision_count (collisions_percent_change.csv)]' value='[collisions_percent_change.csv].[collision_count]' />
+          <map key='[collision_count (collisions_running_avg.csv)]' value='[collisions_running_avg.csv].[collision_count]' />
+          <map key='[collision_count]' value='[collisions_by_month.csv].[collision_count]' />
+          <map key='[collision_percent_change]' value='[collisions_percent_change.csv].[collision_percent_change]' />
+          <map key='[fare_percent_change]' value='[tlc_percent_change.csv].[fare_percent_change]' />
+          <map key='[injured_count (collisions_percent_change.csv)]' value='[collisions_percent_change.csv].[injured_count]' />
+          <map key='[injured_count (collisions_running_avg.csv)]' value='[collisions_running_avg.csv].[injured_count]' />
+          <map key='[injured_count]' value='[collisions_by_month.csv].[injured_count]' />
+          <map key='[injured_percent_change]' value='[collisions_percent_change.csv].[injured_percent_change]' />
+          <map key='[killed_count (collisions_percent_change.csv)]' value='[collisions_percent_change.csv].[killed_count]' />
+          <map key='[killed_count (collisions_running_avg.csv)]' value='[collisions_running_avg.csv].[killed_count]' />
+          <map key='[killed_count]' value='[collisions_by_month.csv].[killed_count]' />
+          <map key='[killed_percent_change]' value='[collisions_percent_change.csv].[killed_percent_change]' />
+          <map key='[max_collision_count]' value='[collisions_by_month.csv].[max_collision_count]' />
+          <map key='[max_injured_count]' value='[collisions_by_month.csv].[max_injured_count]' />
+          <map key='[max_killed_count]' value='[collisions_by_month.csv].[max_killed_count]' />
+          <map key='[max_trip_fare]' value='[tlc_by_month.csv].[max_trip_fare]' />
+          <map key='[max_trip_miles]' value='[tlc_by_month.csv].[max_trip_miles]' />
+          <map key='[max_trip_minutes]' value='[tlc_by_month.csv].[max_trip_minutes]' />
+          <map key='[max_trip_mph]' value='[tlc_by_month.csv].[max_trip_mph]' />
+          <map key='[max_violations]' value='[violations_by_month.csv].[max_violations]' />
+          <map key='[miles_percent_change]' value='[tlc_percent_change.csv].[miles_percent_change]' />
+          <map key='[min_collision_count]' value='[collisions_by_month.csv].[min_collision_count]' />
+          <map key='[min_injured_count]' value='[collisions_by_month.csv].[min_injured_count]' />
+          <map key='[min_killed_count]' value='[collisions_by_month.csv].[min_killed_count]' />
+          <map key='[min_trip_fare]' value='[tlc_by_month.csv].[min_trip_fare]' />
+          <map key='[min_trip_miles]' value='[tlc_by_month.csv].[min_trip_miles]' />
+          <map key='[min_trip_minutes]' value='[tlc_by_month.csv].[min_trip_minutes]' />
+          <map key='[min_trip_mph]' value='[tlc_by_month.csv].[min_trip_mph]' />
+          <map key='[min_violations]' value='[violations_by_month.csv].[min_violations]' />
+          <map key='[minutes_percent_change]' value='[tlc_percent_change.csv].[minutes_percent_change]' />
+          <map key='[month (collisions_percent_change.csv)]' value='[collisions_percent_change.csv].[month]' />
+          <map key='[month (collisions_running_avg.csv)]' value='[collisions_running_avg.csv].[month]' />
+          <map key='[month (tlc_by_month.csv)]' value='[tlc_by_month.csv].[month]' />
+          <map key='[month (tlc_percent_change.csv)]' value='[tlc_percent_change.csv].[month]' />
+          <map key='[month (tlc_running_avg.csv)]' value='[tlc_running_avg.csv].[month]' />
+          <map key='[month (violations_by_month.csv)]' value='[violations_by_month.csv].[month]' />
+          <map key='[month (violations_percent_change.csv)]' value='[violations_percent_change.csv].[month]' />
+          <map key='[month (violations_running_avg.csv)]' value='[violations_running_avg.csv].[month]' />
+          <map key='[month]' value='[collisions_by_month.csv].[month]' />
+          <map key='[mph_percent_change]' value='[tlc_percent_change.csv].[mph_percent_change]' />
+          <map key='[number_of_violations (violations_percent_change.csv)]' value='[violations_percent_change.csv].[number_of_violations]' />
+          <map key='[number_of_violations (violations_running_avg.csv)]' value='[violations_running_avg.csv].[number_of_violations]' />
+          <map key='[number_of_violations]' value='[violations_by_month.csv].[number_of_violations]' />
+          <map key='[trip_count]' value='[tlc_by_month.csv].[trip_count]' />
+          <map key='[violations_percent_change]' value='[violations_percent_change.csv].[violations_percent_change]' />
+          <map key='[year (collisions_percent_change.csv)]' value='[collisions_percent_change.csv].[year]' />
+          <map key='[year (collisions_running_avg.csv)]' value='[collisions_running_avg.csv].[year]' />
+          <map key='[year (tlc_by_month.csv)]' value='[tlc_by_month.csv].[year]' />
+          <map key='[year (tlc_percent_change.csv)]' value='[tlc_percent_change.csv].[year]' />
+          <map key='[year (tlc_running_avg.csv)]' value='[tlc_running_avg.csv].[year]' />
+          <map key='[year (violations_by_month.csv)]' value='[violations_by_month.csv].[year]' />
+          <map key='[year (violations_percent_change.csv)]' value='[violations_percent_change.csv].[year]' />
+          <map key='[year (violations_running_avg.csv)]' value='[violations_running_avg.csv].[year]' />
+          <map key='[year]' value='[collisions_by_month.csv].[year]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>year</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[year]</local-name>
+            <parent-name>[collisions_by_month.csv]</parent-name>
+            <remote-alias>year</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>month</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[month]</local-name>
+            <parent-name>[collisions_by_month.csv]</parent-name>
+            <remote-alias>month</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>borough</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[borough]</local-name>
+            <parent-name>[collisions_by_month.csv]</parent-name>
+            <remote-alias>borough</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>collision_count</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[collision_count]</local-name>
+            <parent-name>[collisions_by_month.csv]</parent-name>
+            <remote-alias>collision_count</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>min_collision_count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[min_collision_count]</local-name>
+            <parent-name>[collisions_by_month.csv]</parent-name>
+            <remote-alias>min_collision_count</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>max_collision_count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[max_collision_count]</local-name>
+            <parent-name>[collisions_by_month.csv]</parent-name>
+            <remote-alias>max_collision_count</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>injured_count</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[injured_count]</local-name>
+            <parent-name>[collisions_by_month.csv]</parent-name>
+            <remote-alias>injured_count</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>min_injured_count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[min_injured_count]</local-name>
+            <parent-name>[collisions_by_month.csv]</parent-name>
+            <remote-alias>min_injured_count</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>max_injured_count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[max_injured_count]</local-name>
+            <parent-name>[collisions_by_month.csv]</parent-name>
+            <remote-alias>max_injured_count</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>killed_count</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[killed_count]</local-name>
+            <parent-name>[collisions_by_month.csv]</parent-name>
+            <remote-alias>killed_count</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>min_killed_count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[min_killed_count]</local-name>
+            <parent-name>[collisions_by_month.csv]</parent-name>
+            <remote-alias>min_killed_count</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>max_killed_count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[max_killed_count]</local-name>
+            <parent-name>[collisions_by_month.csv]</parent-name>
+            <remote-alias>max_killed_count</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[collisions_by_month.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>year</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[year (collisions_percent_change.csv)]</local-name>
+            <parent-name>[collisions_percent_change.csv]</parent-name>
+            <remote-alias>year</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>month</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[month (collisions_percent_change.csv)]</local-name>
+            <parent-name>[collisions_percent_change.csv]</parent-name>
+            <remote-alias>month</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>borough</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[borough (collisions_percent_change.csv)]</local-name>
+            <parent-name>[collisions_percent_change.csv]</parent-name>
+            <remote-alias>borough</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>collision_count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[collision_count (collisions_percent_change.csv)]</local-name>
+            <parent-name>[collisions_percent_change.csv]</parent-name>
+            <remote-alias>collision_count</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>collision_percent_change</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[collision_percent_change]</local-name>
+            <parent-name>[collisions_percent_change.csv]</parent-name>
+            <remote-alias>collision_percent_change</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>killed_count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[killed_count (collisions_percent_change.csv)]</local-name>
+            <parent-name>[collisions_percent_change.csv]</parent-name>
+            <remote-alias>killed_count</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>killed_percent_change</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[killed_percent_change]</local-name>
+            <parent-name>[collisions_percent_change.csv]</parent-name>
+            <remote-alias>killed_percent_change</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>injured_count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[injured_count (collisions_percent_change.csv)]</local-name>
+            <parent-name>[collisions_percent_change.csv]</parent-name>
+            <remote-alias>injured_count</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>injured_percent_change</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[injured_percent_change]</local-name>
+            <parent-name>[collisions_percent_change.csv]</parent-name>
+            <remote-alias>injured_percent_change</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[collisions_percent_change.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>year</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[year (collisions_running_avg.csv)]</local-name>
+            <parent-name>[collisions_running_avg.csv]</parent-name>
+            <remote-alias>year</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>month</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[month (collisions_running_avg.csv)]</local-name>
+            <parent-name>[collisions_running_avg.csv]</parent-name>
+            <remote-alias>month</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>borough</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[borough (collisions_running_avg.csv)]</local-name>
+            <parent-name>[collisions_running_avg.csv]</parent-name>
+            <remote-alias>borough</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>collision_count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[collision_count (collisions_running_avg.csv)]</local-name>
+            <parent-name>[collisions_running_avg.csv]</parent-name>
+            <remote-alias>collision_count</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>3mo_collision_count</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[3mo_collision_count]</local-name>
+            <parent-name>[collisions_running_avg.csv]</parent-name>
+            <remote-alias>3mo_collision_count</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>6mo_collision_count</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[6mo_collision_count]</local-name>
+            <parent-name>[collisions_running_avg.csv]</parent-name>
+            <remote-alias>6mo_collision_count</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>12mo_collision_count</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[12mo_collision_count]</local-name>
+            <parent-name>[collisions_running_avg.csv]</parent-name>
+            <remote-alias>12mo_collision_count</remote-alias>
+            <ordinal>27</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>injured_count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[injured_count (collisions_running_avg.csv)]</local-name>
+            <parent-name>[collisions_running_avg.csv]</parent-name>
+            <remote-alias>injured_count</remote-alias>
+            <ordinal>28</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>3mo_injured_count</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[3mo_injured_count]</local-name>
+            <parent-name>[collisions_running_avg.csv]</parent-name>
+            <remote-alias>3mo_injured_count</remote-alias>
+            <ordinal>29</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>6mo_injured_count</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[6mo_injured_count]</local-name>
+            <parent-name>[collisions_running_avg.csv]</parent-name>
+            <remote-alias>6mo_injured_count</remote-alias>
+            <ordinal>30</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>12mo_injured_count</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[12mo_injured_count]</local-name>
+            <parent-name>[collisions_running_avg.csv]</parent-name>
+            <remote-alias>12mo_injured_count</remote-alias>
+            <ordinal>31</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>killed_count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[killed_count (collisions_running_avg.csv)]</local-name>
+            <parent-name>[collisions_running_avg.csv]</parent-name>
+            <remote-alias>killed_count</remote-alias>
+            <ordinal>32</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>3mo_killed_count</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[3mo_killed_count]</local-name>
+            <parent-name>[collisions_running_avg.csv]</parent-name>
+            <remote-alias>3mo_killed_count</remote-alias>
+            <ordinal>33</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>6mo_killed_count</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[6mo_killed_count]</local-name>
+            <parent-name>[collisions_running_avg.csv]</parent-name>
+            <remote-alias>6mo_killed_count</remote-alias>
+            <ordinal>34</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>12mo_killed_count</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[12mo_killed_count]</local-name>
+            <parent-name>[collisions_running_avg.csv]</parent-name>
+            <remote-alias>12mo_killed_count</remote-alias>
+            <ordinal>35</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[collisions_running_avg.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>year</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[year (violations_by_month.csv)]</local-name>
+            <parent-name>[violations_by_month.csv]</parent-name>
+            <remote-alias>year</remote-alias>
+            <ordinal>36</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>month</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[month (violations_by_month.csv)]</local-name>
+            <parent-name>[violations_by_month.csv]</parent-name>
+            <remote-alias>month</remote-alias>
+            <ordinal>37</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>borough</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[borough (violations_by_month.csv)]</local-name>
+            <parent-name>[violations_by_month.csv]</parent-name>
+            <remote-alias>borough</remote-alias>
+            <ordinal>38</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>number_of_violations</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[number_of_violations]</local-name>
+            <parent-name>[violations_by_month.csv]</parent-name>
+            <remote-alias>number_of_violations</remote-alias>
+            <ordinal>39</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>min_violations</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[min_violations]</local-name>
+            <parent-name>[violations_by_month.csv]</parent-name>
+            <remote-alias>min_violations</remote-alias>
+            <ordinal>40</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>max_violations</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[max_violations]</local-name>
+            <parent-name>[violations_by_month.csv]</parent-name>
+            <remote-alias>max_violations</remote-alias>
+            <ordinal>41</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[violations_by_month.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>year</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[year (violations_percent_change.csv)]</local-name>
+            <parent-name>[violations_percent_change.csv]</parent-name>
+            <remote-alias>year</remote-alias>
+            <ordinal>42</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>month</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[month (violations_percent_change.csv)]</local-name>
+            <parent-name>[violations_percent_change.csv]</parent-name>
+            <remote-alias>month</remote-alias>
+            <ordinal>43</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>borough</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[borough (violations_percent_change.csv)]</local-name>
+            <parent-name>[violations_percent_change.csv]</parent-name>
+            <remote-alias>borough</remote-alias>
+            <ordinal>44</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>number_of_violations</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[number_of_violations (violations_percent_change.csv)]</local-name>
+            <parent-name>[violations_percent_change.csv]</parent-name>
+            <remote-alias>number_of_violations</remote-alias>
+            <ordinal>45</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>violations_percent_change</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[violations_percent_change]</local-name>
+            <parent-name>[violations_percent_change.csv]</parent-name>
+            <remote-alias>violations_percent_change</remote-alias>
+            <ordinal>46</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[violations_percent_change.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>year</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[year (violations_running_avg.csv)]</local-name>
+            <parent-name>[violations_running_avg.csv]</parent-name>
+            <remote-alias>year</remote-alias>
+            <ordinal>47</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>month</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[month (violations_running_avg.csv)]</local-name>
+            <parent-name>[violations_running_avg.csv]</parent-name>
+            <remote-alias>month</remote-alias>
+            <ordinal>48</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>borough</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[borough (violations_running_avg.csv)]</local-name>
+            <parent-name>[violations_running_avg.csv]</parent-name>
+            <remote-alias>borough</remote-alias>
+            <ordinal>49</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteCollation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='DebugRemoteMetadata (compression)'>&quot;heap&quot;</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>4294967292</attribute>
+              <attribute datatype='integer' name='DebugRemoteMetadata (storagewidth)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;str&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>number_of_violations</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[number_of_violations (violations_running_avg.csv)]</local-name>
+            <parent-name>[violations_running_avg.csv]</parent-name>
+            <remote-alias>number_of_violations</remote-alias>
+            <ordinal>50</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>3mo_violations</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[3mo_violations]</local-name>
+            <parent-name>[violations_running_avg.csv]</parent-name>
+            <remote-alias>3mo_violations</remote-alias>
+            <ordinal>51</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>6mo_violations</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[6mo_violations]</local-name>
+            <parent-name>[violations_running_avg.csv]</parent-name>
+            <remote-alias>6mo_violations</remote-alias>
+            <ordinal>52</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>12mo_violations</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[12mo_violations]</local-name>
+            <parent-name>[violations_running_avg.csv]</parent-name>
+            <remote-alias>12mo_violations</remote-alias>
+            <ordinal>53</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[violations_running_avg.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>year</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[year (tlc_by_month.csv)]</local-name>
+            <parent-name>[tlc_by_month.csv]</parent-name>
+            <remote-alias>year</remote-alias>
+            <ordinal>54</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>month</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[month (tlc_by_month.csv)]</local-name>
+            <parent-name>[tlc_by_month.csv]</parent-name>
+            <remote-alias>month</remote-alias>
+            <ordinal>55</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>trip_count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[trip_count]</local-name>
+            <parent-name>[tlc_by_month.csv]</parent-name>
+            <remote-alias>trip_count</remote-alias>
+            <ordinal>56</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>avg_trip_minutes</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[avg_trip_minutes]</local-name>
+            <parent-name>[tlc_by_month.csv]</parent-name>
+            <remote-alias>avg_trip_minutes</remote-alias>
+            <ordinal>57</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>min_trip_minutes</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[min_trip_minutes]</local-name>
+            <parent-name>[tlc_by_month.csv]</parent-name>
+            <remote-alias>min_trip_minutes</remote-alias>
+            <ordinal>58</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>max_trip_minutes</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[max_trip_minutes]</local-name>
+            <parent-name>[tlc_by_month.csv]</parent-name>
+            <remote-alias>max_trip_minutes</remote-alias>
+            <ordinal>59</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>avg_trip_miles</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[avg_trip_miles]</local-name>
+            <parent-name>[tlc_by_month.csv]</parent-name>
+            <remote-alias>avg_trip_miles</remote-alias>
+            <ordinal>60</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>min_trip_miles</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[min_trip_miles]</local-name>
+            <parent-name>[tlc_by_month.csv]</parent-name>
+            <remote-alias>min_trip_miles</remote-alias>
+            <ordinal>61</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>max_trip_miles</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[max_trip_miles]</local-name>
+            <parent-name>[tlc_by_month.csv]</parent-name>
+            <remote-alias>max_trip_miles</remote-alias>
+            <ordinal>62</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>avg_trip_mph</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[avg_trip_mph]</local-name>
+            <parent-name>[tlc_by_month.csv]</parent-name>
+            <remote-alias>avg_trip_mph</remote-alias>
+            <ordinal>63</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>min_trip_mph</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[min_trip_mph]</local-name>
+            <parent-name>[tlc_by_month.csv]</parent-name>
+            <remote-alias>min_trip_mph</remote-alias>
+            <ordinal>64</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>max_trip_mph</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[max_trip_mph]</local-name>
+            <parent-name>[tlc_by_month.csv]</parent-name>
+            <remote-alias>max_trip_mph</remote-alias>
+            <ordinal>65</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>avg_trip_fare</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[avg_trip_fare]</local-name>
+            <parent-name>[tlc_by_month.csv]</parent-name>
+            <remote-alias>avg_trip_fare</remote-alias>
+            <ordinal>66</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>min_trip_fare</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[min_trip_fare]</local-name>
+            <parent-name>[tlc_by_month.csv]</parent-name>
+            <remote-alias>min_trip_fare</remote-alias>
+            <ordinal>67</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>max_trip_fare</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[max_trip_fare]</local-name>
+            <parent-name>[tlc_by_month.csv]</parent-name>
+            <remote-alias>max_trip_fare</remote-alias>
+            <ordinal>68</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[tlc_by_month.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>year</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[year (tlc_percent_change.csv)]</local-name>
+            <parent-name>[tlc_percent_change.csv]</parent-name>
+            <remote-alias>year</remote-alias>
+            <ordinal>69</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>month</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[month (tlc_percent_change.csv)]</local-name>
+            <parent-name>[tlc_percent_change.csv]</parent-name>
+            <remote-alias>month</remote-alias>
+            <ordinal>70</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>avg_trip_minutes</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[avg_trip_minutes (tlc_percent_change.csv)]</local-name>
+            <parent-name>[tlc_percent_change.csv]</parent-name>
+            <remote-alias>avg_trip_minutes</remote-alias>
+            <ordinal>71</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>minutes_percent_change</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[minutes_percent_change]</local-name>
+            <parent-name>[tlc_percent_change.csv]</parent-name>
+            <remote-alias>minutes_percent_change</remote-alias>
+            <ordinal>72</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>avg_trip_miles</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[avg_trip_miles (tlc_percent_change.csv)]</local-name>
+            <parent-name>[tlc_percent_change.csv]</parent-name>
+            <remote-alias>avg_trip_miles</remote-alias>
+            <ordinal>73</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>miles_percent_change</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[miles_percent_change]</local-name>
+            <parent-name>[tlc_percent_change.csv]</parent-name>
+            <remote-alias>miles_percent_change</remote-alias>
+            <ordinal>74</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>avg_trip_mph</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[avg_trip_mph (tlc_percent_change.csv)]</local-name>
+            <parent-name>[tlc_percent_change.csv]</parent-name>
+            <remote-alias>avg_trip_mph</remote-alias>
+            <ordinal>75</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>mph_percent_change</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[mph_percent_change]</local-name>
+            <parent-name>[tlc_percent_change.csv]</parent-name>
+            <remote-alias>mph_percent_change</remote-alias>
+            <ordinal>76</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>avg_trip_fare</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[avg_trip_fare (tlc_percent_change.csv)]</local-name>
+            <parent-name>[tlc_percent_change.csv]</parent-name>
+            <remote-alias>avg_trip_fare</remote-alias>
+            <ordinal>77</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>fare_percent_change</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[fare_percent_change]</local-name>
+            <parent-name>[tlc_percent_change.csv]</parent-name>
+            <remote-alias>fare_percent_change</remote-alias>
+            <ordinal>78</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[tlc_percent_change.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>year</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[year (tlc_running_avg.csv)]</local-name>
+            <parent-name>[tlc_running_avg.csv]</parent-name>
+            <remote-alias>year</remote-alias>
+            <ordinal>79</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>month</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[month (tlc_running_avg.csv)]</local-name>
+            <parent-name>[tlc_running_avg.csv]</parent-name>
+            <remote-alias>month</remote-alias>
+            <ordinal>80</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;sint64&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>3mo_trip_minutes</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[3mo_trip_minutes]</local-name>
+            <parent-name>[tlc_running_avg.csv]</parent-name>
+            <remote-alias>3mo_trip_minutes</remote-alias>
+            <ordinal>81</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>3mo_trip_miles</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[3mo_trip_miles]</local-name>
+            <parent-name>[tlc_running_avg.csv]</parent-name>
+            <remote-alias>3mo_trip_miles</remote-alias>
+            <ordinal>82</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>3mo_trip_mph</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[3mo_trip_mph]</local-name>
+            <parent-name>[tlc_running_avg.csv]</parent-name>
+            <remote-alias>3mo_trip_mph</remote-alias>
+            <ordinal>83</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>3mo_trip_fare</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[3mo_trip_fare]</local-name>
+            <parent-name>[tlc_running_avg.csv]</parent-name>
+            <remote-alias>3mo_trip_fare</remote-alias>
+            <ordinal>84</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>6mo_trip_minutes</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[6mo_trip_minutes]</local-name>
+            <parent-name>[tlc_running_avg.csv]</parent-name>
+            <remote-alias>6mo_trip_minutes</remote-alias>
+            <ordinal>85</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>6mo_trip_miles</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[6mo_trip_miles]</local-name>
+            <parent-name>[tlc_running_avg.csv]</parent-name>
+            <remote-alias>6mo_trip_miles</remote-alias>
+            <ordinal>86</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>6mo_trip_mph</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[6mo_trip_mph]</local-name>
+            <parent-name>[tlc_running_avg.csv]</parent-name>
+            <remote-alias>6mo_trip_mph</remote-alias>
+            <ordinal>87</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>6mo_trip_fare</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[6mo_trip_fare]</local-name>
+            <parent-name>[tlc_running_avg.csv]</parent-name>
+            <remote-alias>6mo_trip_fare</remote-alias>
+            <ordinal>88</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>12mo_trip_minutes</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[12mo_trip_minutes]</local-name>
+            <parent-name>[tlc_running_avg.csv]</parent-name>
+            <remote-alias>12mo_trip_minutes</remote-alias>
+            <ordinal>89</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>12mo_trip_miles</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[12mo_trip_miles]</local-name>
+            <parent-name>[tlc_running_avg.csv]</parent-name>
+            <remote-alias>12mo_trip_miles</remote-alias>
+            <ordinal>90</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>12mo_trip_mph</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[12mo_trip_mph]</local-name>
+            <parent-name>[tlc_running_avg.csv]</parent-name>
+            <remote-alias>12mo_trip_mph</remote-alias>
+            <ordinal>91</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>12mo_trip_fare</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[12mo_trip_fare]</local-name>
+            <parent-name>[tlc_running_avg.csv]</parent-name>
+            <remote-alias>12mo_trip_fare</remote-alias>
+            <ordinal>92</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='DebugRemoteMetadata (size)'>8</attribute>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;double&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[tlc_running_avg.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='12Mo Collision Count' datatype='real' name='[12mo_collision_count]' role='measure' type='quantitative' />
+      <column caption='12Mo Injured Count' datatype='real' name='[12mo_injured_count]' role='measure' type='quantitative' />
+      <column caption='12Mo Killed Count' datatype='real' name='[12mo_killed_count]' role='measure' type='quantitative' />
+      <column caption='12Mo Trip Fare' datatype='real' name='[12mo_trip_fare]' role='measure' type='quantitative' />
+      <column caption='12Mo Trip Miles' datatype='real' name='[12mo_trip_miles]' role='measure' type='quantitative' />
+      <column caption='12Mo Trip Minutes' datatype='real' name='[12mo_trip_minutes]' role='measure' type='quantitative' />
+      <column caption='12Mo Trip Mph' datatype='real' name='[12mo_trip_mph]' role='measure' type='quantitative' />
+      <column caption='12Mo Violations' datatype='real' name='[12mo_violations]' role='measure' type='quantitative' />
+      <column caption='3Mo Collision Count' datatype='real' name='[3mo_collision_count]' role='measure' type='quantitative' />
+      <column caption='3Mo Injured Count' datatype='real' name='[3mo_injured_count]' role='measure' type='quantitative' />
+      <column caption='3Mo Killed Count' datatype='real' name='[3mo_killed_count]' role='measure' type='quantitative' />
+      <column caption='3Mo Trip Fare' datatype='real' name='[3mo_trip_fare]' role='measure' type='quantitative' />
+      <column caption='3Mo Trip Miles' datatype='real' name='[3mo_trip_miles]' role='measure' type='quantitative' />
+      <column caption='3Mo Trip Minutes' datatype='real' name='[3mo_trip_minutes]' role='measure' type='quantitative' />
+      <column caption='3Mo Trip Mph' datatype='real' name='[3mo_trip_mph]' role='measure' type='quantitative' />
+      <column caption='3Mo Violations' datatype='real' name='[3mo_violations]' role='measure' type='quantitative' />
+      <column caption='6Mo Collision Count' datatype='real' name='[6mo_collision_count]' role='measure' type='quantitative' />
+      <column caption='6Mo Injured Count' datatype='real' name='[6mo_injured_count]' role='measure' type='quantitative' />
+      <column caption='6Mo Killed Count' datatype='real' name='[6mo_killed_count]' role='measure' type='quantitative' />
+      <column caption='6Mo Trip Fare' datatype='real' name='[6mo_trip_fare]' role='measure' type='quantitative' />
+      <column caption='6Mo Trip Miles' datatype='real' name='[6mo_trip_miles]' role='measure' type='quantitative' />
+      <column caption='6Mo Trip Minutes' datatype='real' name='[6mo_trip_minutes]' role='measure' type='quantitative' />
+      <column caption='6Mo Trip Mph' datatype='real' name='[6mo_trip_mph]' role='measure' type='quantitative' />
+      <column caption='6Mo Violations' datatype='real' name='[6mo_violations]' role='measure' type='quantitative' />
+      <column caption='REFERENCE DATE' datatype='date' name='[Calculation_5690157411537645568]' role='dimension' type='ordinal'>
+        <calculation class='tableau' formula='DATE(&quot;1/1/1900&quot;)' />
+      </column>
+      <column caption='Date' datatype='datetime' name='[Calculation_5690157411537813505]' role='dimension' type='ordinal'>
+        <calculation class='tableau' formula='DATEADD(&apos;month&apos;, [month] - 1,&#10;DATEADD(&apos;year&apos;, [year] - DATEPART(&apos;year&apos;, [Calculation_5690157411537645568]), [Calculation_5690157411537645568]))' />
+      </column>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Avg Trip Fare (Tlc Percent Change.Csv)' datatype='real' name='[avg_trip_fare (tlc_percent_change.csv)]' role='measure' type='quantitative' />
+      <column caption='Avg Trip Fare' datatype='real' name='[avg_trip_fare]' role='measure' type='quantitative' />
+      <column caption='Avg Trip Miles (Tlc Percent Change.Csv)' datatype='real' name='[avg_trip_miles (tlc_percent_change.csv)]' role='measure' type='quantitative' />
+      <column caption='Avg Trip Miles' datatype='real' name='[avg_trip_miles]' role='measure' type='quantitative' />
+      <column caption='Avg Trip Minutes (Tlc Percent Change.Csv)' datatype='real' name='[avg_trip_minutes (tlc_percent_change.csv)]' role='measure' type='quantitative' />
+      <column caption='Avg Trip Minutes' datatype='real' name='[avg_trip_minutes]' role='measure' type='quantitative' />
+      <column caption='Avg Trip Mph (Tlc Percent Change.Csv)' datatype='real' name='[avg_trip_mph (tlc_percent_change.csv)]' role='measure' type='quantitative' />
+      <column caption='Avg Trip Mph' datatype='real' name='[avg_trip_mph]' role='measure' type='quantitative' />
+      <column caption='Borough (Collisions Percent Change.Csv)' datatype='string' name='[borough (collisions_percent_change.csv)]' role='dimension' type='nominal' />
+      <column caption='Borough (Collisions Running Avg.Csv)' datatype='string' name='[borough (collisions_running_avg.csv)]' role='dimension' type='nominal' />
+      <column caption='Borough (Violations By Month.Csv)' datatype='string' name='[borough (violations_by_month.csv)]' role='dimension' type='nominal' />
+      <column caption='Borough (Violations Running Avg.Csv)' datatype='string' name='[borough (violations_running_avg.csv)]' role='dimension' type='nominal' />
+      <column caption='Borough' datatype='string' name='[borough]' role='dimension' type='nominal' />
+      <column caption='Collision Count (Collisions Percent Change.Csv)' datatype='integer' name='[collision_count (collisions_percent_change.csv)]' role='measure' type='quantitative' />
+      <column caption='Collision Count (Collisions Running Avg.Csv)' datatype='integer' name='[collision_count (collisions_running_avg.csv)]' role='measure' type='quantitative' />
+      <column caption='Collision Count' datatype='real' name='[collision_count]' role='measure' type='quantitative' />
+      <column caption='Collision Percent Change' datatype='real' name='[collision_percent_change]' role='measure' type='quantitative' />
+      <column caption='Fare Percent Change' datatype='real' name='[fare_percent_change]' role='measure' type='quantitative' />
+      <column caption='Injured Count (Collisions Percent Change.Csv)' datatype='integer' name='[injured_count (collisions_percent_change.csv)]' role='measure' type='quantitative' />
+      <column caption='Injured Count (Collisions Running Avg.Csv)' datatype='integer' name='[injured_count (collisions_running_avg.csv)]' role='measure' type='quantitative' />
+      <column caption='Injured Count' datatype='real' name='[injured_count]' role='measure' type='quantitative' />
+      <column caption='Injured Percent Change' datatype='real' name='[injured_percent_change]' role='measure' type='quantitative' />
+      <column caption='Killed Count (Collisions Percent Change.Csv)' datatype='integer' name='[killed_count (collisions_percent_change.csv)]' role='measure' type='quantitative' />
+      <column caption='Killed Count (Collisions Running Avg.Csv)' datatype='integer' name='[killed_count (collisions_running_avg.csv)]' role='measure' type='quantitative' />
+      <column caption='Killed Count' datatype='real' name='[killed_count]' role='measure' type='quantitative' />
+      <column caption='Killed Percent Change' datatype='string' name='[killed_percent_change]' role='dimension' type='nominal' />
+      <column caption='Max Collision Count' datatype='integer' name='[max_collision_count]' role='measure' type='quantitative' />
+      <column caption='Max Injured Count' datatype='integer' name='[max_injured_count]' role='measure' type='quantitative' />
+      <column caption='Max Killed Count' datatype='integer' name='[max_killed_count]' role='measure' type='quantitative' />
+      <column caption='Max Trip Fare' datatype='real' name='[max_trip_fare]' role='measure' type='quantitative' />
+      <column caption='Max Trip Miles' datatype='real' name='[max_trip_miles]' role='measure' type='quantitative' />
+      <column caption='Max Trip Minutes' datatype='real' name='[max_trip_minutes]' role='measure' type='quantitative' />
+      <column caption='Max Trip Mph' datatype='real' name='[max_trip_mph]' role='measure' type='quantitative' />
+      <column caption='Max Violations' datatype='real' name='[max_violations]' role='measure' type='quantitative' />
+      <column caption='Miles Percent Change' datatype='real' name='[miles_percent_change]' role='measure' type='quantitative' />
+      <column caption='Min Collision Count' datatype='integer' name='[min_collision_count]' role='measure' type='quantitative' />
+      <column caption='Min Injured Count' datatype='integer' name='[min_injured_count]' role='measure' type='quantitative' />
+      <column caption='Min Killed Count' datatype='integer' name='[min_killed_count]' role='measure' type='quantitative' />
+      <column caption='Min Trip Fare' datatype='real' name='[min_trip_fare]' role='measure' type='quantitative' />
+      <column caption='Min Trip Miles' datatype='real' name='[min_trip_miles]' role='measure' type='quantitative' />
+      <column caption='Min Trip Minutes' datatype='real' name='[min_trip_minutes]' role='measure' type='quantitative' />
+      <column caption='Min Trip Mph' datatype='real' name='[min_trip_mph]' role='measure' type='quantitative' />
+      <column caption='Min Violations' datatype='real' name='[min_violations]' role='measure' type='quantitative' />
+      <column caption='Minutes Percent Change' datatype='real' name='[minutes_percent_change]' role='measure' type='quantitative' />
+      <column caption='Month (Collisions Percent Change.Csv)' datatype='integer' name='[month (collisions_percent_change.csv)]' role='dimension' type='quantitative' />
+      <column caption='Month (Collisions Running Avg.Csv)' datatype='integer' name='[month (collisions_running_avg.csv)]' role='dimension' type='quantitative' />
+      <column caption='Month (Tlc By Month.Csv)' datatype='integer' name='[month (tlc_by_month.csv)]' role='dimension' type='quantitative' />
+      <column caption='Month (Tlc Percent Change.Csv)' datatype='integer' name='[month (tlc_percent_change.csv)]' role='dimension' type='quantitative' />
+      <column caption='Month (Tlc Running Avg.Csv)' datatype='integer' name='[month (tlc_running_avg.csv)]' role='dimension' type='quantitative' />
+      <column caption='Month (Violations By Month.Csv)' datatype='integer' name='[month (violations_by_month.csv)]' role='dimension' type='quantitative' />
+      <column caption='Month (Violations Running Avg.Csv)' datatype='integer' name='[month (violations_running_avg.csv)]' role='dimension' type='quantitative' />
+      <column caption='Month' datatype='integer' name='[month]' role='dimension' type='quantitative' />
+      <column caption='Mph Percent Change' datatype='real' name='[mph_percent_change]' role='measure' type='quantitative' />
+      <column caption='Number Of Violations (Violations Running Avg.Csv)' datatype='real' name='[number_of_violations (violations_running_avg.csv)]' role='measure' type='quantitative' />
+      <column caption='Number Of Violations' datatype='real' name='[number_of_violations]' role='measure' type='quantitative' />
+      <column caption='Trip Count' datatype='integer' name='[trip_count]' role='measure' type='quantitative' />
+      <column caption='Year (Collisions Percent Change.Csv)' datatype='integer' name='[year (collisions_percent_change.csv)]' role='dimension' type='quantitative' />
+      <column caption='Year (Collisions Running Avg.Csv)' datatype='integer' name='[year (collisions_running_avg.csv)]' role='dimension' type='quantitative' />
+      <column caption='Year (Tlc By Month.Csv)' datatype='integer' name='[year (tlc_by_month.csv)]' role='dimension' type='quantitative' />
+      <column caption='Year (Tlc Percent Change.Csv)' datatype='integer' name='[year (tlc_percent_change.csv)]' role='dimension' type='quantitative' />
+      <column caption='Year (Tlc Running Avg.Csv)' datatype='integer' name='[year (tlc_running_avg.csv)]' role='dimension' type='quantitative' />
+      <column caption='Year (Violations By Month.Csv)' datatype='integer' name='[year (violations_by_month.csv)]' role='dimension' type='quantitative' />
+      <column caption='Year (Violations Running Avg.Csv)' datatype='integer' name='[year (violations_running_avg.csv)]' role='dimension' type='quantitative' />
+      <column caption='Year' datatype='integer' name='[year]' role='dimension' type='quantitative' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.254854' measure-ordering='alphabetic' measure-percentage='0.745146' show-structure='true' user-set-layout='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.15chgyi081ltxw1d8i8pw0he9nmh]&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Collisions'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='collisions_by_month.csv+ (Multiple Connections)' name='federated.15chgyi081ltxw1d8i8pw0he9nmh' />
+          </datasources>
+          <datasource-dependencies datasource='federated.15chgyi081ltxw1d8i8pw0he9nmh'>
+            <column caption='12Mo Collision Count' datatype='real' name='[12mo_collision_count]' role='measure' type='quantitative' />
+            <column caption='12Mo Injured Count' datatype='real' name='[12mo_injured_count]' role='measure' type='quantitative' />
+            <column caption='12Mo Killed Count' datatype='real' name='[12mo_killed_count]' role='measure' type='quantitative' />
+            <column caption='REFERENCE DATE' datatype='date' name='[Calculation_5690157411537645568]' role='dimension' type='ordinal'>
+              <calculation class='tableau' formula='DATE(&quot;1/1/1900&quot;)' />
+            </column>
+            <column caption='Date' datatype='datetime' name='[Calculation_5690157411537813505]' role='dimension' type='ordinal'>
+              <calculation class='tableau' formula='DATEADD(&apos;month&apos;, [month] - 1,&#10;DATEADD(&apos;year&apos;, [year] - DATEPART(&apos;year&apos;, [Calculation_5690157411537645568]), [Calculation_5690157411537645568]))' />
+            </column>
+            <column caption='Borough' datatype='string' name='[borough]' role='dimension' type='nominal' />
+            <column caption='Collision Count' datatype='real' name='[collision_count]' role='measure' type='quantitative' />
+            <column caption='Injured Count' datatype='real' name='[injured_count]' role='measure' type='quantitative' />
+            <column caption='Killed Count' datatype='real' name='[killed_count]' role='measure' type='quantitative' />
+            <column caption='Month' datatype='integer' name='[month]' role='dimension' type='quantitative' />
+            <column-instance column='[12mo_collision_count]' derivation='None' name='[none:12mo_collision_count:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[12mo_injured_count]' derivation='None' name='[none:12mo_injured_count:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[12mo_killed_count]' derivation='None' name='[none:12mo_killed_count:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[borough]' derivation='None' name='[none:borough:nk]' pivot='key' type='nominal' />
+            <column-instance column='[collision_count]' derivation='None' name='[none:collision_count:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[injured_count]' derivation='None' name='[none:injured_count:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[killed_count]' derivation='None' name='[none:killed_count:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_5690157411537813505]' derivation='Month-Trunc' name='[tmn:Calculation_5690157411537813505:qk]' pivot='key' type='quantitative' />
+            <column caption='Year' datatype='integer' name='[year]' role='dimension' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:borough:nk]'>
+            <groupfilter function='member' level='[none:borough:nk]' member='&quot;NYC&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:borough:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:12mo_killed_count:qk]' field-type='quantitative' fold='true' scope='rows' synchronized='true' type='space' />
+            <encoding attr='space' class='0' field='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:12mo_injured_count:qk]' field-type='quantitative' fold='true' scope='rows' synchronized='true' type='space' />
+            <encoding attr='space' class='0' field='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:12mo_collision_count:qk]' field-type='quantitative' fold='true' scope='rows' synchronized='true' type='space' />
+          </style-rule>
+          <style-rule element='refline'>
+            <format attr='fill-above' id='refline0' value='#00000000' />
+            <format attr='fill-below' id='refline0' value='#00000000' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <mark-sizing custom-mark-size-in-axis-units='1.0' mark-alignment='mark-alignment-left' mark-sizing-setting='marks-scaling-on' use-custom-mark-size='false' />
+            <reference-line axis-column='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[tmn:Calculation_5690157411537813505:qk]' enable-instant-analytics='true' formula='constant' id='refline0' label-type='none' scope='per-pane' value='#2014-11-04 00:00:00#' value-column='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[tmn:Calculation_5690157411537813505:qk]' z-order='1' />
+          </pane>
+          <pane id='1' y-axis-name='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:collision_count:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <mark-sizing custom-mark-size-in-axis-units='1.0' mark-alignment='mark-alignment-left' mark-sizing-setting='marks-scaling-on' use-custom-mark-size='false' />
+            <encodings>
+              <color column='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='2' y-axis-name='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:injured_count:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <mark-sizing custom-mark-size-in-axis-units='1.0' mark-alignment='mark-alignment-left' mark-sizing-setting='marks-scaling-on' use-custom-mark-size='false' />
+            <encodings>
+              <color column='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='3' y-axis-name='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:killed_count:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <mark-sizing custom-mark-size-in-axis-units='1.0' mark-alignment='mark-alignment-left' mark-sizing-setting='marks-scaling-on' use-custom-mark-size='false' />
+            <encodings>
+              <color column='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='4' y-axis-name='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:12mo_collision_count:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+          </pane>
+          <pane id='5' y-axis-name='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:12mo_injured_count:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+          </pane>
+          <pane id='6' y-axis-name='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:12mo_killed_count:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+          </pane>
+        </panes>
+        <rows>([federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:borough:nk] * ([federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:collision_count:qk] + ([federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:12mo_collision_count:qk] + ([federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:injured_count:qk] + ([federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:12mo_injured_count:qk] + ([federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:killed_count:qk] + [federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:12mo_killed_count:qk]))))))</rows>
+        <cols>[federated.15chgyi081ltxw1d8i8pw0he9nmh].[tmn:Calculation_5690157411537813505:qk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name='TLC'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='collisions_by_month.csv+ (Multiple Connections)' name='federated.15chgyi081ltxw1d8i8pw0he9nmh' />
+          </datasources>
+          <datasource-dependencies datasource='federated.15chgyi081ltxw1d8i8pw0he9nmh'>
+            <column caption='12Mo Trip Fare' datatype='real' name='[12mo_trip_fare]' role='measure' type='quantitative' />
+            <column caption='12Mo Trip Miles' datatype='real' name='[12mo_trip_miles]' role='measure' type='quantitative' />
+            <column caption='12Mo Trip Minutes' datatype='real' name='[12mo_trip_minutes]' role='measure' type='quantitative' />
+            <column caption='12Mo Trip Mph' datatype='real' name='[12mo_trip_mph]' role='measure' type='quantitative' />
+            <column caption='REFERENCE DATE' datatype='date' name='[Calculation_5690157411537645568]' role='dimension' type='ordinal'>
+              <calculation class='tableau' formula='DATE(&quot;1/1/1900&quot;)' />
+            </column>
+            <column caption='Date' datatype='datetime' name='[Calculation_5690157411537813505]' role='dimension' type='ordinal'>
+              <calculation class='tableau' formula='DATEADD(&apos;month&apos;, [month] - 1,&#10;DATEADD(&apos;year&apos;, [year] - DATEPART(&apos;year&apos;, [Calculation_5690157411537645568]), [Calculation_5690157411537645568]))' />
+            </column>
+            <column caption='Avg Trip Fare' datatype='real' name='[avg_trip_fare]' role='measure' type='quantitative' />
+            <column caption='Avg Trip Miles' datatype='real' name='[avg_trip_miles]' role='measure' type='quantitative' />
+            <column caption='Avg Trip Minutes' datatype='real' name='[avg_trip_minutes]' role='measure' type='quantitative' />
+            <column caption='Avg Trip Mph' datatype='real' name='[avg_trip_mph]' role='measure' type='quantitative' />
+            <column caption='Month' datatype='integer' name='[month]' role='dimension' type='quantitative' />
+            <column-instance column='[12mo_trip_fare]' derivation='None' name='[none:12mo_trip_fare:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[12mo_trip_miles]' derivation='None' name='[none:12mo_trip_miles:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[12mo_trip_minutes]' derivation='None' name='[none:12mo_trip_minutes:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[12mo_trip_mph]' derivation='None' name='[none:12mo_trip_mph:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[avg_trip_fare]' derivation='None' name='[none:avg_trip_fare:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[avg_trip_miles]' derivation='None' name='[none:avg_trip_miles:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[avg_trip_minutes]' derivation='None' name='[none:avg_trip_minutes:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[avg_trip_mph]' derivation='None' name='[none:avg_trip_mph:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_5690157411537813505]' derivation='Month-Trunc' name='[tmn:Calculation_5690157411537813505:qk]' pivot='key' type='quantitative' />
+            <column caption='Year' datatype='integer' name='[year]' role='dimension' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:12mo_trip_fare:qk]' included-values='non-null' />
+          <slices>
+            <column>[federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:12mo_trip_fare:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:12mo_trip_mph:qk]' field-type='quantitative' fold='true' scope='rows' synchronized='true' type='space' />
+            <encoding attr='space' class='0' field='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:12mo_trip_minutes:qk]' field-type='quantitative' fold='true' scope='rows' synchronized='true' type='space' />
+            <encoding attr='space' class='0' field='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:12mo_trip_fare:qk]' field-type='quantitative' fold='true' scope='rows' synchronized='true' type='space' />
+            <encoding attr='space' class='0' field='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:12mo_trip_miles:qk]' field-type='quantitative' fold='true' scope='rows' synchronized='true' type='space' />
+          </style-rule>
+          <style-rule element='refline'>
+            <format attr='fill-above' id='refline0' value='#00000000' />
+            <format attr='fill-below' id='refline0' value='#00000000' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <mark-sizing custom-mark-size-in-axis-units='1.0' mark-alignment='mark-alignment-left' mark-sizing-setting='marks-scaling-on' use-custom-mark-size='false' />
+            <reference-line axis-column='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[tmn:Calculation_5690157411537813505:qk]' enable-instant-analytics='true' formula='constant' id='refline0' label-type='none' scope='per-pane' value='#2014-11-04 00:00:00#' value-column='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[tmn:Calculation_5690157411537813505:qk]' z-order='1' />
+          </pane>
+          <pane id='1' y-axis-name='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:avg_trip_mph:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <mark-sizing custom-mark-size-in-axis-units='1.0' mark-alignment='mark-alignment-left' mark-sizing-setting='marks-scaling-on' use-custom-mark-size='false' />
+            <encodings>
+              <color column='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='2' y-axis-name='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:avg_trip_minutes:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <mark-sizing custom-mark-size-in-axis-units='1.0' mark-alignment='mark-alignment-left' mark-sizing-setting='marks-scaling-on' use-custom-mark-size='false' />
+            <encodings>
+              <color column='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='3' y-axis-name='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:avg_trip_fare:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <mark-sizing custom-mark-size-in-axis-units='1.0' mark-alignment='mark-alignment-left' mark-sizing-setting='marks-scaling-on' use-custom-mark-size='false' />
+            <encodings>
+              <color column='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='4' y-axis-name='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:avg_trip_miles:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <mark-sizing custom-mark-size-in-axis-units='1.0' mark-alignment='mark-alignment-left' mark-sizing-setting='marks-scaling-on' use-custom-mark-size='false' />
+            <encodings>
+              <color column='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='5' y-axis-name='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:12mo_trip_fare:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+          </pane>
+          <pane id='6' y-axis-name='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:12mo_trip_miles:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+          </pane>
+          <pane id='7' y-axis-name='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:12mo_trip_minutes:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+          </pane>
+          <pane id='8' y-axis-name='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:12mo_trip_mph:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+          </pane>
+        </panes>
+        <rows>([federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:avg_trip_mph:qk] + ([federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:12mo_trip_mph:qk] + ([federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:avg_trip_minutes:qk] + ([federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:12mo_trip_minutes:qk] + ([federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:avg_trip_fare:qk] + ([federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:12mo_trip_fare:qk] + ([federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:avg_trip_miles:qk] + [federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:12mo_trip_miles:qk])))))))</rows>
+        <cols>[federated.15chgyi081ltxw1d8i8pw0he9nmh].[tmn:Calculation_5690157411537813505:qk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name='Violations'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='collisions_by_month.csv+ (Multiple Connections)' name='federated.15chgyi081ltxw1d8i8pw0he9nmh' />
+          </datasources>
+          <datasource-dependencies datasource='federated.15chgyi081ltxw1d8i8pw0he9nmh'>
+            <column caption='12Mo Violations' datatype='real' name='[12mo_violations]' role='measure' type='quantitative' />
+            <column caption='REFERENCE DATE' datatype='date' name='[Calculation_5690157411537645568]' role='dimension' type='ordinal'>
+              <calculation class='tableau' formula='DATE(&quot;1/1/1900&quot;)' />
+            </column>
+            <column caption='Date' datatype='datetime' name='[Calculation_5690157411537813505]' role='dimension' type='ordinal'>
+              <calculation class='tableau' formula='DATEADD(&apos;month&apos;, [month] - 1,&#10;DATEADD(&apos;year&apos;, [year] - DATEPART(&apos;year&apos;, [Calculation_5690157411537645568]), [Calculation_5690157411537645568]))' />
+            </column>
+            <column caption='Borough' datatype='string' name='[borough]' role='dimension' type='nominal' />
+            <column caption='Month' datatype='integer' name='[month]' role='dimension' type='quantitative' />
+            <column-instance column='[12mo_violations]' derivation='None' name='[none:12mo_violations:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[borough]' derivation='None' name='[none:borough:nk]' pivot='key' type='nominal' />
+            <column-instance column='[number_of_violations]' derivation='None' name='[none:number_of_violations:qk]' pivot='key' type='quantitative' />
+            <column caption='Number Of Violations' datatype='real' name='[number_of_violations]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_5690157411537813505]' derivation='Month-Trunc' name='[tmn:Calculation_5690157411537813505:qk]' pivot='key' type='quantitative' />
+            <column caption='Year' datatype='integer' name='[year]' role='dimension' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:12mo_violations:qk]' included-values='non-null' />
+          <filter class='categorical' column='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:borough:nk]'>
+            <groupfilter function='member' level='[none:borough:nk]' member='&quot;NYC&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:borough:nk]</column>
+            <column>[federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:12mo_violations:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:12mo_violations:qk]' field-type='quantitative' fold='true' scope='rows' synchronized='true' type='space' />
+          </style-rule>
+          <style-rule element='refline'>
+            <format attr='fill-above' id='refline0' value='#00000000' />
+            <format attr='fill-below' id='refline0' value='#00000000' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <reference-line axis-column='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[tmn:Calculation_5690157411537813505:qk]' enable-instant-analytics='true' formula='constant' id='refline0' label-type='none' scope='per-pane' value='#2014-11-04 00:00:00#' value-column='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[tmn:Calculation_5690157411537813505:qk]' z-order='1' />
+          </pane>
+          <pane id='1' y-axis-name='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:number_of_violations:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <mark-sizing custom-mark-size-in-axis-units='1.0' mark-alignment='mark-alignment-left' mark-sizing-setting='marks-scaling-on' use-custom-mark-size='false' />
+            <encodings>
+              <color column='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='2' y-axis-name='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:12mo_violations:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+          </pane>
+        </panes>
+        <rows>([federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:borough:nk] * ([federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:number_of_violations:qk] + [federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:12mo_violations:qk]))</rows>
+        <cols>[federated.15chgyi081ltxw1d8i8pw0he9nmh].[tmn:Calculation_5690157411537813505:qk]</cols>
+      </table>
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' name='Collisions'>
+      <cards>
+        <edge name='left'>
+          <strip size='262'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card param='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:borough:nk]' type='filter' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:borough:nk]</field>
+            <field>[federated.15chgyi081ltxw1d8i8pw0he9nmh].[yr:Calculation_5690157411537813505:ok]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+    <window class='worksheet' name='Violations'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card param='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[none:borough:nk]' type='filter' />
+            <card pane-specification-id='1' param='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+    <window class='worksheet' maximized='true' name='TLC'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='1' param='[federated.15chgyi081ltxw1d8i8pw0he9nmh].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Collisions' width='192'>
+      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
+    </thumbnail>
+    <thumbnail height='192' name='TLC' width='192'>
+      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
+      YyilGH/h5d3qmxC7bluL64dPlZR7iIl+JnuBxECTAIiBJgEQA00CIAaaBEAMNAmAGGgSADHQ
+      JABioCndgOM4O55YtVollUp1oVtfCcOQj764Tz1qf7OOdNyk4nUum9hMO0NBwjaptrkhdTef
+      b7PtErZBEGrCLrwXCkht8r2I2wau33ypzK0+52bb9fK9VbqLt4Epl8tks9luTU6IXSdDIDHQ
+      JABioG27dvlXR05SFCf60bYDsHR/jitfzHD86ATzKxVef/Xr3eyXED2x7QD4NZfHThzHLczz
+      xFNPEYbhrpwRJsRu2nYAEqk0VccjnRvGc13M4eyunBEmxG6S3aBioMleIDHQJABioEkAxECT
+      AIiBJgEQA00CIAaaBEAMNAmAGGgSADHQtl23cO/OLPeWC+RTBqmRx5gYkyPAov9sOwBKQTKZ
+      YvLQCCuluhTDib607QBU3CqxWJKlpWU8ncA0R6QYTvQdKYYTA002gsVAkwCIgdYyAAsLC5w/
+      f54oan8tGCH6XcsAzM7OUq1WJQDiwGsZAN/3mZub63VfhOi5pgBorclms4yPj8ulTsSB1zIA
+      V69exbZtCYA48JoCYBgGL730EktLS7INIA68lodtHcdBa912DSBXhhMHQcsAzM3NcezBjbA3
+      snR/jpk7C6QTChXP8dzTJ3etk0LslqYAOI5DJpNhdnaWU6dObfiPhoJENoXSYERSDCf6U8s1
+      gOu6HD16tO0/up5Pwo4TUwEqnsM0TSmGE32naW5NJpPk83lu3LjR9h+PPn5i1zolRK807QVy
+      HIcLFy5w+PDhveiPED3VshzacRwcx+HQoUNbmpiUQ4t+07IU4vz585w7d47V1dVe90eInmoK
+      QKVSIZlMEgQBQRDsRZ+E6JmWG8HZbJbvfOc7JJPJveiTED3Tcg0QBAGffPJJ09FeIXpBa00U
+      RZt67FTLA2G3b99mYmJixxMXYjtuzs7zg7/4oGO7U88d5h//vdd29FxNAZicnOTb3/72jiYq
+      xE4EoebOstuxXbHi7/i5mgJgGAbvvvsu9+/f5+TJk5w+fXrHTyK6Q2u9qWGpUqrnxYlVt0at
+      5nVsl0mniMXsHvRoc1rWLWQyGR5//HGeffbZDf+xuDxPoRLhVwvE0sM8fkwOnO02z/P44//0
+      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
+    </thumbnail>
+    <thumbnail height='192' name='Violations' width='192'>
+      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
+    </thumbnail>
+  </thumbnails>
+</workbook>
