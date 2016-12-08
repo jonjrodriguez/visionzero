@@ -8,7 +8,7 @@ SELECT
     year,
     month,
     borough,
-    sum(amount) AS number_of_violations
+    sum(amount) AS number_of_violations,
     min(amount) AS min_violations,
     max(amount) AS max_violations
 FROM violations
@@ -18,9 +18,9 @@ GROUP BY year, month, borough
     UNION ALL
 SELECT
     year,
-    month
+    month,
     'NYC' as borough,
-    sum(amount) AS number_of_violations
+    sum(amount) AS number_of_violations,
     min(amount) AS min_violations,
     max(amount) AS max_violations
 FROM violations

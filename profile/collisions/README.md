@@ -11,7 +11,7 @@
 
 files: 290
 size: 161M
-rows:
+rows: 698,962
 
 ### Fields:
 

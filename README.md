@@ -16,15 +16,15 @@
   * hadoop jar etl/collisions/CollisionsEtlDriver.jar visionzero/data/original/collisions visionzero/data/formatted/collisions
 
 4. Use Hive/Impala to Analyze the Data
-  * Update {base_path} in hive/schema.q
+  * Update {base_path} in the schema files
   * Connect to Hive/Impala
   * Create database "vision_zero"
   * Run script schema scripts:
     * hive/tlc/schema.q
-	* hive/violations/schema.q
-	* hive/collisions/schema.q
+	  * hive/violations/schema.q
+	  * hive/collisions/schema.q
   * Run aggregate data scripts:
     * hive/tlc/tlc_by_month.q
-	* hive/violations/violations_by_month.q
-	* hive/collisions/collisions_by_month.q
-  * View output from all other scripts
+	  * hive/violations/violations_by_month.q
+	  * hive/collisions/collisions_by_month.q
+  * View output and run other scripts
