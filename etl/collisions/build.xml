@@ -1,10 +1,10 @@
-<project name="EtlData" basedir="." default="main">
+<project name="CollisionsEtlDriver" basedir="." default="main">
 
 	<property name="src.dir"     value="src"/>
     <property name="build.dir"   value="build"/>
     <property name="classes.dir" value="${build.dir}/classes"/>
     <property name="jar.dir"     value="."/>
-    <property name="main-class"  value="EtlData"/>
+    <property name="main-class"  value="CollisionsEtlDriver"/>
 
     <property name="lib.dir"     value="lib"/>
     <property name="hadoop_home" value="/usr/local/Cellar/hadoop/2.7.3/libexec/share/hadoop" />
