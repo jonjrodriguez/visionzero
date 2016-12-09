@@ -1,4 +1,4 @@
-from app import app
+from server import app
 from impala.dbapi import connect
 from sshtunnel import SSHTunnelForwarder
 
@@ -12,7 +12,7 @@ def query_db(query):
         conn = connect(
             host=tunnel.local_bind_host,
             port=tunnel.local_bind_port,
-            database='vision_zero'
+            database=app.config['DATABASE']
         )
 
         cursor = conn.cursor()
