@@ -114,14 +114,11 @@ public class CollisionsEtlMapper extends Mapper<LongWritable, Text, NullWritable
         }
         else {
           if (!line.contains("Collision") && (columns.length == 23))  {
-        	  Integer[] ignoredColumns = {1, 2, 3, 4, 5, 6, 7, 10, 11, 12, 21, 22};
+        	  Integer[] ignoredColumns = {1, 2, 4, 5, 6, 7, 10, 11, 12, 21, 22};
 
         	  int i = 0;
         	  for (String col : columns) {
         		  if (!Arrays.asList(ignoredColumns).contains(i)) {
-        			  if (i == 8) {
-        				  sb.append(delim).append("1");
-        			  }
         			  sb.append(delim).append(col);
         		  }
         		  i++;
