@@ -1,16 +1,4 @@
 .DS_Store
-*.class
-*.jar
 data/*
-*.pyc
-web/config.py
 
 !data/precincts
-
-!etl/violations/lib/poi/*.jar
-!etl/violations/lib/poi/lib/*.jar
-!etl/violations/lib/poi/ooxml-lib/*.jar
-
-!etl/collisions/lib/poi/*.jar
-!etl/collisions/lib/poi/lib/*.jar
-!etl/collisions/lib/poi/ooxml-lib/*.jar
