@@ -20,6 +20,7 @@ http://stackoverflow.com/questions/32986678/xlsx-with-multiple-sheets-as-input-t
 
 [Moving Violation Summonses](http://www.nyc.gov/html/nypd/html/traffic_reports/traffic_summons_reports.shtml)
 
-files: 4372
-size: 33M
-rows: 4372
+* usage: 01/2012 - 10/2016
+* files: 4372
+* size: 33M
+* rows: 4372

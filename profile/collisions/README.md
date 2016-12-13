@@ -20,6 +20,7 @@ http://stackoverflow.com/questions/32986678/xlsx-with-multiple-sheets-as-input-t
 
 [Motor Vehicle Collisions](http://www.nyc.gov/html/nypd/html/traffic_reports/motor_vehicle_collision_data.shtml)
 
-files: 290
-size: 161M
-rows: 698,962
+* usage: 01/2012 - 10/2016
+* files: 290
+* size: 161M
+* rows: 698,962
